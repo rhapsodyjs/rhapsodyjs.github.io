@@ -1,7 +1,75 @@
----
-layout: default
-title: Middlewares
----
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>RhapsodyJS docs - Middlewares</title>
+  <meta name="viewport" content="width=device-width">
 
-{% capture my-include %}{% include middlewares.md %}{% endcapture %}
-{{ my-include | markdownify }}
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css">
+
+  <!-- GitHub markdown CSS -->
+  <link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="sidebar">
+    <img id="logo" src="https://cloud.githubusercontent.com/assets/4325587/2675412/53a4b692-c118-11e3-8147-2f7d99355ae5.png" alt="RhapsodyJS">
+
+    <nav>
+      <div class="item"><a href="/">Get started</a></div>
+      <div class="item"><a href="/controllers.html">Controllers</a></div>
+      <div class="item"><a href="/middlewares.html">Middlewares</a></div>
+      <div class="item"><a href="/models.html">Models</a></div>
+      <div class="item"><a href="/classes.html">Classes</a></div>
+      <div class="item"><a href="/utilities.html">Utilities</a></div>
+      <div class="item">
+        <a href="/configuration/">Configuration</a>
+        <div><a href="/configuration/environments.html">Environments</a></div>
+        <div><a href="/configuration/templateEngines.htl">Template engines</a></div>
+        <div><a href="/configuration/error.html">Error</a></div>
+        <div><a href="/configuration/session.html">Session</a></div>
+        <div><a href="/configuration/socket.html">Socket</a></div>
+        <div><a href="/configuration/bootstrap.html">Bootstraping</a></div>
+        <div><a href="/configuration/csrf.html">CSRF</a></div>
+      </div>
+      <div class="item"><a href="https://github.com/rhapsodyjs/RhapsodyJS" target="_blank">GitHub</a></div>
+    </nav>
+  </div>
+
+  <div id="main-container">
+    <div id="main">
+      <h1 class="title">Middlewares</h1>
+
+      <p>A middleware is like a Controller action, but it receive three parameters:</p>
+
+<ul>
+<li><code>req</code>: Request object</li>
+<li><code>res</code>: Response object</li>
+<li><code>next</code>: Calls the next route for the URL if the request passes the middleware</li>
+</ul>
+
+<p>For example, a middleware that checks if a user is logged and, if so, take it to the info page, otherwise take it to the login page would look like this:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js">    <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">logged</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">next</span><span class="p">();</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
+</code></pre></div>
+<p>RhapsodyJS is also compatible with any Connect or Express middleware! (But you got to install them in your project before use it).</p>
+
+<p>So, for example, if you want to use an middleware called <code>blablabla</code> that you installed in your project, you can just:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js">    <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;blablabla&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>Or pass the <code>require(&#39;blablabla&#39;)</code> directly in the array of middlewares.</p>
+
+    </div>
+  </div>
+</body>
+</html>

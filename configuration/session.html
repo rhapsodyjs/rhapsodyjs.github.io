@@ -1,7 +1,73 @@
----
-layout: default
-title: Session
----
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>RhapsodyJS docs - Session</title>
+  <meta name="viewport" content="width=device-width">
 
-{% capture my-include %}{% include configuration/session.md %}{% endcapture %}
-{{ my-include | markdownify }}
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css">
+
+  <!-- GitHub markdown CSS -->
+  <link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="sidebar">
+    <img id="logo" src="https://cloud.githubusercontent.com/assets/4325587/2675412/53a4b692-c118-11e3-8147-2f7d99355ae5.png" alt="RhapsodyJS">
+
+    <nav>
+      <div class="item"><a href="/">Get started</a></div>
+      <div class="item"><a href="/controllers.html">Controllers</a></div>
+      <div class="item"><a href="/middlewares.html">Middlewares</a></div>
+      <div class="item"><a href="/models.html">Models</a></div>
+      <div class="item"><a href="/classes.html">Classes</a></div>
+      <div class="item"><a href="/utilities.html">Utilities</a></div>
+      <div class="item">
+        <a href="/configuration/">Configuration</a>
+        <div><a href="/configuration/environments.html">Environments</a></div>
+        <div><a href="/configuration/templateEngines.htl">Template engines</a></div>
+        <div><a href="/configuration/error.html">Error</a></div>
+        <div><a href="/configuration/session.html">Session</a></div>
+        <div><a href="/configuration/socket.html">Socket</a></div>
+        <div><a href="/configuration/bootstrap.html">Bootstraping</a></div>
+        <div><a href="/configuration/csrf.html">CSRF</a></div>
+      </div>
+      <div class="item"><a href="https://github.com/rhapsodyjs/RhapsodyJS" target="_blank">GitHub</a></div>
+    </nav>
+  </div>
+
+  <div id="main-container">
+    <div id="main">
+      <h1 class="title">Session</h1>
+
+      <p>In the <code>app/config/session.js</code> file you will have all the options for the use of sessions in your app.</p>
+
+<p>This file can have the following options:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="p">{</span>
+    <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+
+    <span class="c1">//The id of the session on the browser of the client</span>
+    <span class="nx">sessionIDKey</span><span class="o">:</span> <span class="s1">&#39;sessionID&#39;</span><span class="p">,</span>
+
+    <span class="c1">//The secret to use signed cookies. If &quot;undefined&quot;, the cookies will be unsigned</span>
+    <span class="nx">cookieSecret</span><span class="o">:</span> <span class="s1">&#39;rhapsodyCookieSecret&#39;</span><span class="p">,</span> 
+
+    <span class="c1">//The secret used to protect the cookie key of the session in the browser of the client</span>
+    <span class="nx">sessionSecret</span><span class="o">:</span> <span class="s1">&#39;rhapsodySessionSecret&#39;</span><span class="p">,</span> 
+
+    <span class="c1">//The max age of the cookies. If &quot;undefined&quot;, the cookies will never expire</span>
+    <span class="nx">maxAge</span><span class="o">:</span> <span class="mi">60000</span><span class="p">,</span> 
+
+    <span class="c1">//If undefined, uses MemoryStore</span>
+    <span class="c1">//otherwise you must pass a store capable of store cookies/sessions</span>
+    <span class="nx">sessionStore</span><span class="o">:</span> <span class="kc">undefined</span>
+<span class="p">}</span>
+</code></pre></div>
+    </div>
+  </div>
+</body>
+</html>

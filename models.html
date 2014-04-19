@@ -1,7 +1,153 @@
----
-layout: default
-title: Models
----
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>RhapsodyJS docs - Models</title>
+  <meta name="viewport" content="width=device-width">
 
-{% capture my-include %}{% include models.md %}{% endcapture %}
-{{ my-include | markdownify }}
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css">
+
+  <!-- GitHub markdown CSS -->
+  <link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="sidebar">
+    <img id="logo" src="https://cloud.githubusercontent.com/assets/4325587/2675412/53a4b692-c118-11e3-8147-2f7d99355ae5.png" alt="RhapsodyJS">
+
+    <nav>
+      <div class="item"><a href="/">Get started</a></div>
+      <div class="item"><a href="/controllers.html">Controllers</a></div>
+      <div class="item"><a href="/middlewares.html">Middlewares</a></div>
+      <div class="item"><a href="/models.html">Models</a></div>
+      <div class="item"><a href="/classes.html">Classes</a></div>
+      <div class="item"><a href="/utilities.html">Utilities</a></div>
+      <div class="item">
+        <a href="/configuration/">Configuration</a>
+        <div><a href="/configuration/environments.html">Environments</a></div>
+        <div><a href="/configuration/templateEngines.htl">Template engines</a></div>
+        <div><a href="/configuration/error.html">Error</a></div>
+        <div><a href="/configuration/session.html">Session</a></div>
+        <div><a href="/configuration/socket.html">Socket</a></div>
+        <div><a href="/configuration/bootstrap.html">Bootstraping</a></div>
+        <div><a href="/configuration/csrf.html">CSRF</a></div>
+      </div>
+      <div class="item"><a href="https://github.com/rhapsodyjs/RhapsodyJS" target="_blank">GitHub</a></div>
+    </nav>
+  </div>
+
+  <div id="main-container">
+    <div id="main">
+      <h1 class="title">Models</h1>
+
+      <p>The RhapsodyJS models follow a generic template, so both server-side and client-side model (e.g. Backbone model) can be generated without code duplication.
+All the models of an app must be in the <code>models</code> folder, inside the app folder.</p>
+
+<h2>Accessing a model</h2>
+
+<p>When programming some action view, you can require a model using the method: Rhapsody.requireModel(modelName), and then use it as a Mongoose model.</p>
+
+<h2>Spec</h2>
+<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ModelName</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">attributes</span><span class="o">:</span> <span class="p">{</span>
+        <span class="c1">//Write the attributes here</span>
+    <span class="p">},</span>
+
+    <span class="nx">sharedMethods</span><span class="o">:</span> <span class="p">{</span>
+        <span class="c1">//Methods that will be both in server-side and client-side model</span>
+    <span class="p">},</span>
+
+    <span class="nx">clientMethods</span><span class="o">:</span> <span class="p">{</span>
+        <span class="c1">//Methods that will be only in the client-side model</span>
+    <span class="p">},</span>
+
+    <span class="nx">serverMethods</span><span class="o">:</span> <span class="p">{</span>
+        <span class="c1">//Methods that will be only in the server-side model</span>
+    <span class="p">},</span>
+
+    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
+        <span class="c1">//Model options</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2>Attributes</h2>
+
+<p>A model attribute can be writen by two ways:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js">    <span class="nx">attributeWithoutOptions</span><span class="o">:</span> <span class="nx">attributeType</span><span class="p">,</span>
+
+    <span class="nx">attributeWithOptions</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">option</span><span class="o">:</span> <span class="nx">optionValue</span>
+    <span class="p">}</span>
+</code></pre></div>
+<h3>Attribute types</h3>
+
+<p>As RhapsodyJS uses Mongoose currently, you can use any of the <a href="http://mongoosejs.com/docs/schematypes.html">Mongoose datatypes</a>:</p>
+
+<ul>
+<li><code>String</code></li>
+<li><code>Number</code></li>
+<li><code>Date</code></li>
+<li><code>Buffer</code></li>
+<li><code>Boolean</code></li>
+<li><code>Mixed</code></li>
+<li><code>Objectid</code></li>
+<li><code>Array</code></li>
+</ul>
+
+<h3>Attribute options</h3>
+
+<p>A model attribute can have the following options:</p>
+
+<ul>
+<li><code>type</code> The type of the attribute. For available types, see above. (<strong>required</strong>)</li>
+<li><code>serverValidations</code> Array of method <em>names</em> (that must be in the serverMethods) that validates the attribute</li>
+<li><code>default</code> Default value of the attribute</li>
+<li><code>required</code> If the attribute is required</li>
+<li><code>restricted</code> If the attribute is omited when the model is sent with the RESTful API (see <code>RESTful API</code> below)</li>
+</ul>
+
+<h2>Methods</h2>
+
+<h3>Shared methods</h3>
+
+<p>These methods will be both in the server-side models (returned from a database query) and the client-side models (e.g. Backbone models), so shouldn&#39;t contain specific server-side or client-side code.</p>
+
+<h3>Client and Server Methods</h3>
+
+<p>Each on them, as the name says, will be attached to theirs respective sides (client-side and server-side) models.</p>
+
+<h2>Options</h2>
+
+<p>A model can have the following options:</p>
+
+<ul>
+<li><code>allowRest</code> Allow the creation of a RESTful API for this model (see the RESTful API below)</li>
+<li><code>middlewares</code> Middlewares names (see the <a href="/middlewares.html">Middlewares session</a>) tha the request to the RESTful API will pass before have access to the data.</li>
+</ul>
+
+<h2>RESTful API</h2>
+
+<p>RhapsodyJS creates automatically a RESTful API for each model (that can be disabled setting the allowRest option of the model as <code>false</code>).</p>
+
+<p>Terminology: <code>documents</code> are each of the data stored in a model collection</p>
+
+<p>The RESTful API of each model can be accessed by the path: /data/ModelName, so you can:</p>
+
+<ul>
+<li><strong>POST</strong> <code>/data/ModelName</code> Insert a new document to the <em>ModelName</em> collection with the data sent via POST</li>
+<li><strong>GET</strong> <code>/data/ModelName</code> Return all documents of the model <em>ModelName</em></li>
+<li><strong>GET</strong> <code>/data/ModelName/&lt;id&gt;</code> Return the document of the model <em>ModelName</em> with the given <em>id</em></li>
+<li><strong>PUT</strong> <code>/data/ModelName/&lt;id&gt;</code> Update the document of the model <em>ModelName</em> with the data sent via PUT</li>
+<li><strong>DELETE</strong> <code>/data/ModelName/&lt;id&gt;</code> Delete the document with the given <em>id</em> from the <em>ModelName</em> collection</li>
+</ul>
+
+<p>All theses request will first pass by the model middlewares (if any).</p>
+
+    </div>
+  </div>
+</body>
+</html>

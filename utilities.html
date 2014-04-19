@@ -1,7 +1,91 @@
----
-layout: default
-title: Utilities
----
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>RhapsodyJS docs - Utilities</title>
+  <meta name="viewport" content="width=device-width">
 
-{% capture my-include %}{% include utilities.md %}{% endcapture %}
-{{ my-include | markdownify }}
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css">
+
+  <!-- GitHub markdown CSS -->
+  <link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="sidebar">
+    <img id="logo" src="https://cloud.githubusercontent.com/assets/4325587/2675412/53a4b692-c118-11e3-8147-2f7d99355ae5.png" alt="RhapsodyJS">
+
+    <nav>
+      <div class="item"><a href="/">Get started</a></div>
+      <div class="item"><a href="/controllers.html">Controllers</a></div>
+      <div class="item"><a href="/middlewares.html">Middlewares</a></div>
+      <div class="item"><a href="/models.html">Models</a></div>
+      <div class="item"><a href="/classes.html">Classes</a></div>
+      <div class="item"><a href="/utilities.html">Utilities</a></div>
+      <div class="item">
+        <a href="/configuration/">Configuration</a>
+        <div><a href="/configuration/environments.html">Environments</a></div>
+        <div><a href="/configuration/templateEngines.htl">Template engines</a></div>
+        <div><a href="/configuration/error.html">Error</a></div>
+        <div><a href="/configuration/session.html">Session</a></div>
+        <div><a href="/configuration/socket.html">Socket</a></div>
+        <div><a href="/configuration/bootstrap.html">Bootstraping</a></div>
+        <div><a href="/configuration/csrf.html">CSRF</a></div>
+      </div>
+      <div class="item"><a href="https://github.com/rhapsodyjs/RhapsodyJS" target="_blank">GitHub</a></div>
+    </nav>
+  </div>
+
+  <div id="main-container">
+    <div id="main">
+      <h1 class="title">Utilities</h1>
+
+      <p>Here will be listed some utilities created to be used inside your RhapsodyJS app.</p>
+
+<h2>Logging</h2>
+
+<p>For use the logging system (configured in the file of your current environment in <code>app/config/environment_name.js</code>), you just use:</p>
+<div class="highlight"><pre><code class="js language-js" data-lang="js">    <span class="nx">Rhapsody</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">LOG_LEVEL</span><span class="p">(</span><span class="nx">TITLE</span><span class="p">,</span> <span class="nx">MESSAGE</span><span class="p">);</span>
+</code></pre></div>
+<p>For the API of <code>Rhapsody.log</code>, see the <a href="https://www.npmjs.org/package/wolverine">WolverineJS API</a>.</p>
+
+<h2>Libs</h2>
+
+<p>All libs used internally by RhapsodyJS that you possibly would use in your app are accessible trough the <code>Rhapsody</code> global variable, they are:</p>
+
+<ul>
+<li><code>Rhapsody.libs.express</code> https://www.npmjs.org/package/express</li>
+<li><code>Rhapsody.libs.jsmin</code> https://www.npmjs.org/package/jsmin</li>
+<li><code>Rhapsody.libs.lodash</code> https://www.npmjs.org/package/lodash</li>
+<li><code>Rhapsody.libs.wolverine</code> https://www.npmjs.org/package/wolverine</li>
+</ul>
+
+<h2>Middlewares</h2>
+
+<p>When you&#39;re configuring the middlewares of a controller or a view, you can set any of then as the name of a file inside the <code>app/middlewares</code> folder (without the <code>.js</code>) or the function itself.</p>
+
+<p>The NodeJS community has already created some standard middlewares, and some of them can be accessed by the <code>Rhapsody</code> global variable, they are:</p>
+
+<ul>
+<li><code>Rhapsody.middlewares.compression</code> https://www.npmjs.org/package/compression</li>
+<li><code>Rhapsody.middlewares.methodOverride</code> https://www.npmjs.org/package/method-override</li>
+<li><code>Rhapsody.middlewares.bodyParser</code> https://www.npmjs.org/package/body-parser</li>
+<li><code>Rhapsody.middlewares.multiparty</code> https://www.npmjs.org/package/connect-multiparty</li>
+<li><code>Rhapsody.middlewares.cookieParser</code> https://www.npmjs.org/package/cookie-parser</li>
+<li><code>Rhapsody.middlewares.session</code> https://www.npmjs.org/package/express-session</li>
+<li><code>Rhapsody.middlewares.csurf</code> https://www.npmjs.org/package/csurf</li>
+<li><code>Rhapsody.middlewares.cors</code> https://www.npmjs.org/package/cors</li>
+</ul>
+
+<h2>App root folder</h2>
+
+<p>The app root folder (that contains the <code>app</code>, <code>node_modules</code>, <code>app.js</code> and <code>package.json</code>) can be accessed by the variable <code>Rhapsody.root</code>.</p>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,7 +1,74 @@
----
-layout: default
-title: Get started
----
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>RhapsodyJS docs - Get started</title>
+  <meta name="viewport" content="width=device-width">
 
-{% capture my-include %}{% include index.md %}{% endcapture %}
-{{ my-include | markdownify }}
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css">
+
+  <!-- GitHub markdown CSS -->
+  <link rel="stylesheet" href="/css/markdown.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <div id="sidebar">
+    <img id="logo" src="https://cloud.githubusercontent.com/assets/4325587/2675412/53a4b692-c118-11e3-8147-2f7d99355ae5.png" alt="RhapsodyJS">
+
+    <nav>
+      <div class="item"><a href="/">Get started</a></div>
+      <div class="item"><a href="/controllers.html">Controllers</a></div>
+      <div class="item"><a href="/middlewares.html">Middlewares</a></div>
+      <div class="item"><a href="/models.html">Models</a></div>
+      <div class="item"><a href="/classes.html">Classes</a></div>
+      <div class="item"><a href="/utilities.html">Utilities</a></div>
+      <div class="item">
+        <a href="/configuration/">Configuration</a>
+        <div><a href="/configuration/environments.html">Environments</a></div>
+        <div><a href="/configuration/templateEngines.htl">Template engines</a></div>
+        <div><a href="/configuration/error.html">Error</a></div>
+        <div><a href="/configuration/session.html">Session</a></div>
+        <div><a href="/configuration/socket.html">Socket</a></div>
+        <div><a href="/configuration/bootstrap.html">Bootstraping</a></div>
+        <div><a href="/configuration/csrf.html">CSRF</a></div>
+      </div>
+      <div class="item"><a href="https://github.com/rhapsodyjs/RhapsodyJS" target="_blank">GitHub</a></div>
+    </nav>
+  </div>
+
+  <div id="main-container">
+    <div id="main">
+      <h1 class="title">Get started</h1>
+
+      <p>RhapsodyJS is a HMVC framework that runs on top of Express 4, it also auto-generate, in build time, a RESTful API with your Models.</p>
+
+<p>Browse the documentation to understand any the features, and see the <a href="https://github.com/rhapsodyjs/RhapsodyJS-examples">example projects</a>.</p>
+
+<p>It&#39;s kinda simple, because it&#39;s the first documentatin, but I hope you find it useful and like the framework! =)</p>
+
+<h2>Install RhapsodyJS</h2>
+
+<p>To install RhapsodyJS, you must run the command:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">    <span class="nv">$ </span>npm install rhapsody --global 
+</code></pre></div>
+<h2>New app</h2>
+
+<p>To generate a new RhapsodyJS app, you should go to the folder where your app folder will be, and then run:</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">    <span class="nv">$ </span>rhapsody new APP_NAME
+</code></pre></div>
+<p>This will generate the basic structure of your app</p>
+
+<p>So do</p>
+<div class="highlight"><pre><code class="sh language-sh" data-lang="sh">    <span class="nv">$ </span><span class="nb">cd </span>APP_NAME
+    <span class="nv">$ </span>rhapsody run
+</code></pre></div>
+<p>And then your app will be running in <a href="http://localhost:4242">localhost:4242</a>.</p>
+
+    </div>
+  </div>
+</body>
+</html>
