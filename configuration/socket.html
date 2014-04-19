@@ -3,4 +3,5 @@ layout: default
 title: Socket
 ---
 
-{% markdown configuration/socket.md %}
+{% capture my-include %}{% include configuration/socket.md %}{% endcapture %}
+{{ my-include | markdownify }}

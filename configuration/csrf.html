@@ -3,4 +3,5 @@ layout: default
 title: CSRF
 ---
 
-{% markdown configuration/csrf.md %}
+{% capture my-include %}{% include configuration/csrf.md %}{% endcapture %}
+{{ my-include | markdownify }}

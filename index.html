@@ -3,4 +3,5 @@ layout: default
 title: Get started
 ---
 
-{% markdown index.md %}
+{% capture my-include %}{% include index.md %}{% endcapture %}
+{{ my-include | markdownify }}

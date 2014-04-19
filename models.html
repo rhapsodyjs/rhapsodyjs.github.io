@@ -3,4 +3,5 @@ layout: default
 title: Models
 ---
 
-{% markdown models.md %}
+{% capture my-include %}{% include models.md %}{% endcapture %}
+{{ my-include | markdownify }}

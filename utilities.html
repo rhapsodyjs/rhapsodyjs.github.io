@@ -3,4 +3,5 @@ layout: default
 title: Utilities
 ---
 
-{% markdown utilities.md %}
+{% capture my-include %}{% include utilities.md %}{% endcapture %}
+{{ my-include | markdownify }}

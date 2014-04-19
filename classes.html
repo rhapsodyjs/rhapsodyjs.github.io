@@ -3,4 +3,5 @@ layout: default
 title: Classes
 ---
 
-{% markdown classes.md %}
+{% capture my-include %}{% include classes.md %}{% endcapture %}
+{{ my-include | markdownify }}

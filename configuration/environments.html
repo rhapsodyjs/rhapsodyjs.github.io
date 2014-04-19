@@ -3,4 +3,5 @@ layout: default
 title: Environments
 ---
 
-{% markdown configuration/environments.md %}
+{% capture my-include %}{% include configuration/environments.md %}{% endcapture %}
+{{ my-include | markdownify }}

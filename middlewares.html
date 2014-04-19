@@ -3,4 +3,5 @@ layout: default
 title: Middlewares
 ---
 
-{% markdown middlewares.md %}
+{% capture my-include %}{% include middlewares.md %}{% endcapture %}
+{{ my-include | markdownify }}

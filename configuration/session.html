@@ -3,4 +3,5 @@ layout: default
 title: Session
 ---
 
-{% markdown configuration/session.md %}
+{% capture my-include %}{% include configuration/session.md %}{% endcapture %}
+{{ my-include | markdownify }}

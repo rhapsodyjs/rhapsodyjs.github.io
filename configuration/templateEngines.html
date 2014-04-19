@@ -3,4 +3,5 @@ layout: default
 title: Template engines
 ---
 
-{% markdown configuration/templateEngines.md %}
+{% capture my-include %}{% include configuration/templateEngines.md %}{% endcapture %}
+{{ my-include | markdownify }}

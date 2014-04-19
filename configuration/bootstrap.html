@@ -3,4 +3,5 @@ layout: default
 title: Bootstrap
 ---
 
-{% markdown configuration/bootstrap.md %}
+{% capture my-include %}{% include configuration/bootstrap.md %}{% endcapture %}
+{{ my-include | markdownify }}

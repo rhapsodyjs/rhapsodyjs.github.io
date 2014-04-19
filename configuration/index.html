@@ -3,4 +3,5 @@ layout: default
 title: Configuration
 ---
 
-{% markdown configuration/index.md %}
+{% capture my-include %}{% include configuration/index.md %}{% endcapture %}
+{{ my-include | markdownify }}

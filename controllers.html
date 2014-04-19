@@ -3,4 +3,5 @@ layout: default
 title: Controllers
 ---
 
-{% markdown controllers.md %}
+{% capture my-include %}{% include controllers.md %}{% endcapture %}
+{{ my-include | markdownify }}

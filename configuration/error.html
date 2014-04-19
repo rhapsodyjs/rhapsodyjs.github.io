@@ -3,4 +3,5 @@ layout: default
 title: Error
 ---
 
-{% markdown configuration/error.md %}
+{% capture my-include %}{% include configuration/error.md %}{% endcapture %}
+{{ my-include | markdownify }}
