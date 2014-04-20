@@ -34,7 +34,7 @@ var config = {
     },
 
     log: {
-        //For debug levels, see WolverineJS documentation: https://github.com/talyssonoc/wolverinejs
+        //For log levels, see WolverineJS documentation: https://github.com/talyssonoc/wolverinejs
         level: 'debug',
 
         //if undefined, will print to the terminal

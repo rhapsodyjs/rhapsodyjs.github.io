@@ -14,10 +14,10 @@ For the API of `Rhapsody.log`, see the [WolverineJS API](https://www.npmjs.org/p
 
 All libs used internally by RhapsodyJS that you possibly would use in your app are accessible trough the `Rhapsody` global variable, they are:
 
-* `Rhapsody.libs.express` https://www.npmjs.org/package/express
-* `Rhapsody.libs.jsmin` https://www.npmjs.org/package/jsmin
-* `Rhapsody.libs.lodash` https://www.npmjs.org/package/lodash
-* `Rhapsody.libs.wolverine` https://www.npmjs.org/package/wolverine
+* `Rhapsody.libs.express` [https://www.npmjs.org/package/express](https://www.npmjs.org/package/express)
+* `Rhapsody.libs.jsmin` [https://www.npmjs.org/package/jsmin](https://www.npmjs.org/package/jsmin)
+* `Rhapsody.libs.lodash` [https://www.npmjs.org/package/lodash](https://www.npmjs.org/package/lodash)
+* `Rhapsody.libs.wolverine` [https://www.npmjs.org/package/wolverine](https://www.npmjs.org/package/wolverine)
 
 ## Middlewares
 
@@ -25,14 +25,14 @@ When you're configuring the middlewares of a controller or a view, you can set a
 
 The NodeJS community has already created some standard middlewares, and some of them can be accessed by the `Rhapsody` global variable, they are:
 
-* `Rhapsody.middlewares.compression` https://www.npmjs.org/package/compression
-* `Rhapsody.middlewares.methodOverride` https://www.npmjs.org/package/method-override
-* `Rhapsody.middlewares.bodyParser` https://www.npmjs.org/package/body-parser
-* `Rhapsody.middlewares.multiparty` https://www.npmjs.org/package/connect-multiparty
-* `Rhapsody.middlewares.cookieParser` https://www.npmjs.org/package/cookie-parser
-* `Rhapsody.middlewares.session` https://www.npmjs.org/package/express-session
-* `Rhapsody.middlewares.csurf` https://www.npmjs.org/package/csurf
-* `Rhapsody.middlewares.cors` https://www.npmjs.org/package/cors
+* `Rhapsody.middlewares.compression` [https://www.npmjs.org/package/compression](https://www.npmjs.org/package/compression)
+* `Rhapsody.middlewares.methodOverride` [https://www.npmjs.org/package/method-override](https://www.npmjs.org/package/method-override)
+* `Rhapsody.middlewares.bodyParser` [https://www.npmjs.org/package/body-parser](https://www.npmjs.org/package/body-parser)
+* `Rhapsody.middlewares.multiparty` [https://www.npmjs.org/package/connect-multiparty](https://www.npmjs.org/package/connect-multiparty)
+* `Rhapsody.middlewares.cookieParser` [https://www.npmjs.org/package/cookie-parser](https://www.npmjs.org/package/cookie-parser)
+* `Rhapsody.middlewares.session` [https://www.npmjs.org/package/express-session](https://www.npmjs.org/package/express-session)
+* `Rhapsody.middlewares.csurf` [https://www.npmjs.org/package/csurf](https://www.npmjs.org/package/csurf)
+* `Rhapsody.middlewares.cors` [https://www.npmjs.org/package/cors](https://www.npmjs.org/package/cors)
 
 ## App root folder
 
