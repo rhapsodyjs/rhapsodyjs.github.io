@@ -49,10 +49,11 @@ All the models of an app must be in the <code>models</code> folder, inside the a
 
 <h2>Accessing a model</h2>
 
-<p>When programming some action view, you can require a model using the method: Rhapsody.requireModel(modelName), and then use it as a Mongoose model.</p>
+<p>When programming some action view, you can require a model using the method: Rhapsody.requireModel(modelName), and then use it as a <a href="https://github.com/1602/jugglingdb">JugglingDB</a> model normally.
+To see how to use the models, check the <a href="https://github.com/1602/jugglingdb">JugglingDB documentation</a>.</p>
 
 <h2>Spec</h2>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ModelName</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="js"><span class="kd">var</span> <span class="nx">ModelName</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">attributes</span><span class="o">:</span> <span class="p">{</span>
         <span class="c1">//Write the attributes here</span>
     <span class="p">},</span>
@@ -77,25 +78,23 @@ All the models of an app must be in the <code>models</code> folder, inside the a
 <h2>Attributes</h2>
 
 <p>A model attribute can be writen by two ways:</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js">    <span class="nx">attributeWithoutOptions</span><span class="o">:</span> <span class="nx">attributeType</span><span class="p">,</span>
+<div class="highlight"><pre><code class="js">    <span class="nx">attributeWithoutOptions</span><span class="o">:</span> <span class="nx">attributeType</span><span class="p">,</span>
 
     <span class="nx">attributeWithOptions</span><span class="o">:</span> <span class="p">{</span>
-        <span class="nx">option</span><span class="o">:</span> <span class="nx">optionValue</span>
+        <span class="nx">option</span><span class="o">:</span> <span class="nx">optionValue</span> <span class="p">(</span><span class="nx">see</span> <span class="nx">the</span> <span class="nx">options</span> <span class="nx">below</span><span class="p">)</span>
     <span class="p">}</span>
 </code></pre></div>
 <h3>Attribute types</h3>
 
-<p>As RhapsodyJS uses Mongoose currently, you can use any of the <a href="http://mongoosejs.com/docs/schematypes.html">Mongoose datatypes</a>:</p>
+<p>As RhapsodyJS uses <a href="https://github.com/1602/jugglingdb">JugglingDB</a> for database access, the attribute types dependes on the adapter you&#39;re using.
+But most of adapters accept the following attribute types:</p>
 
 <ul>
 <li><code>String</code></li>
 <li><code>Number</code></li>
 <li><code>Date</code></li>
-<li><code>Buffer</code></li>
 <li><code>Boolean</code></li>
-<li><code>Mixed</code></li>
-<li><code>Objectid</code></li>
-<li><code>Array</code></li>
+<li><code>Object</code> (You must pass the object, not write <code>Object</code> in the type)</li>
 </ul>
 
 <h3>Attribute options</h3>
@@ -120,13 +119,14 @@ All the models of an app must be in the <code>models</code> folder, inside the a
 
 <p>Each on them, as the name says, will be attached to theirs respective sides (client-side and server-side) models.</p>
 
-<h2>Options</h2>
+<h2>Model options</h2>
 
 <p>A model can have the following options:</p>
 
 <ul>
 <li><code>allowRest</code> Allow the creation of a RESTful API for this model (see the RESTful API below)</li>
 <li><code>middlewares</code> Middlewares names (see the <a href="/middlewares.html">Middlewares session</a>) tha the request to the RESTful API will pass before have access to the data.</li>
+<li><code>adapter</code> Name of the adapter this model uses (see the <a href="/configuration/database-adapters.html">Database adapters session</a>). If not specified, will use the defaultAdapter (see <a href="/configuration/environments.html">defaultAdapater</a>)</li>
 </ul>
 
 <h2>RESTful API</h2>
@@ -138,15 +138,23 @@ All the models of an app must be in the <code>models</code> folder, inside the a
 <p>The RESTful API of each model can be accessed by the path: /data/ModelName, so you can:</p>
 
 <ul>
-<li><strong>POST</strong> <code>/data/ModelName</code> Insert a new document to the <em>ModelName</em> collection with the data sent via POST</li>
+<li><strong>POST</strong> <code>/data/ModelName</code> Insert a new document to the <em>ModelName</em> collection with the data sent via POST and returns it</li>
 <li><strong>GET</strong> <code>/data/ModelName</code> Return all documents of the model <em>ModelName</em></li>
 <li><strong>GET</strong> <code>/data/ModelName/&lt;id&gt;</code> Return the document of the model <em>ModelName</em> with the given <em>id</em></li>
 <li><strong>PUT</strong> <code>/data/ModelName/&lt;id&gt;</code> Update the document of the model <em>ModelName</em> with the data sent via PUT</li>
-<li><strong>PATCH</strong> <code>/data/ModelName/&lt;id&gt;</code> Patch/update the document of the model <em>ModelName</em> with the data sent via PATCH</li>
+<li><strong>PATCH</strong> <code>/data/ModelName/&lt;id&gt;</code> Update partially the document of the model <em>ModelName</em> with the data sent via PATCH</li>
 <li><strong>DELETE</strong> <code>/data/ModelName/&lt;id&gt;</code> Delete the document with the given <em>id</em> from the <em>ModelName</em> collection</li>
 </ul>
 
 <p>All theses request will first pass by the model middlewares (if any).</p>
+
+<p>If you want just some attributes, you can pass it with the option &quot;attrs&quot; separating them with commas (no spaces), for example:</p>
+
+<p><code>/data/ModelName/?attrs=name,registry</code></p>
+
+<p>or</p>
+
+<p><code>/data/ModelName/someID/?attrs=name,registry</code></p>
 
     </div>
   </div>

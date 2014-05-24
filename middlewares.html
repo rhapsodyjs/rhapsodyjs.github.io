@@ -53,7 +53,7 @@
 </ul>
 
 <p>For example, a middleware that checks if a user is logged and, if so, take it to the info page, otherwise take it to the login page would look like this:</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js">    <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">logged</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="js">    <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">logged</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
       <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">next</span><span class="p">();</span>
       <span class="p">}</span>
@@ -65,11 +65,9 @@
 <p>RhapsodyJS is also compatible with any Connect or Express middleware! (But you got to install them in your project before use it).</p>
 
 <p>So, for example, if you want to use an middleware called <code>blablabla</code> that you installed in your project, you can just:</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js">    <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;blablabla&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><code class="js">    <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;blablabla&#39;</span><span class="p">);</span>
 </code></pre></div>
 <p>Or pass the <code>require(&#39;blablabla&#39;)</code> directly in the array of middlewares.</p>
-
-<p>All your middlewares must be inside the <code>app/middlewares</code> folder, and be referenced by the name of its file.</p>
 
     </div>
   </div>

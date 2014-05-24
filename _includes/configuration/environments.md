@@ -25,12 +25,7 @@ var config = {
 
     database: {
         enabled: true,
-        host: 'localhost',
-        port: 27017,
-        name: 'rhapsodyDB',
-        username: undefined,
-        password: undefined,
-        mongoOptions: {}
+        defaultAdapter: ''
     },
 
     log: {

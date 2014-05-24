@@ -45,7 +45,7 @@
       <h1 class="title">CSRF</h1>
 
       <p>If enabled, you must add a hidden field to your forms using the the variable from locals called <code>_csrf</code>, like this:</p>
-<div class="highlight"><pre><code class="html language-html" data-lang="html">    <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;/enter&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><code class="html">    <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">&quot;/enter&quot;</span> <span class="na">method=</span><span class="s">&quot;post&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">&quot;user&quot;</span><span class="nt">&gt;</span>Username<span class="nt">&lt;/label&gt;</span>
         <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">name=</span><span class="s">&quot;user&quot;</span> <span class="na">id=</span><span class="s">&quot;user&quot;</span><span class="nt">&gt;</span>
         <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;hidden&quot;</span> <span class="na">name=</span><span class="s">&quot;_csrf&quot;</span> <span class="na">value=</span><span class="s">&quot;{{_csrf}}&quot;</span><span class="nt">&gt;</span>

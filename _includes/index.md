@@ -1,8 +1,8 @@
-RhapsodyJS is a HMVC framework that runs on top of Express 4, it also auto-generate, in build time, a RESTful API with your Models.
+RhapsodyJS is a HMVC framework that runs on top of Express 4, it also auto-generate, in build time, a RESTful API with your database-agnostic Models.
 
 Browse the documentation to understand any the features, and see the [example projects](https://github.com/rhapsodyjs/RhapsodyJS-examples).
 
-It's kinda simple, because it's the first documentatin, but I hope you find it useful and like the framework! =)
+This documentatios is kinda simple, because it's the first documentatin, but I hope you find it useful and like the framework! =)
 
 ## Install RhapsodyJS
 

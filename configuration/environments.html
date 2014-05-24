@@ -48,7 +48,7 @@
 The <code>all.js</code> file contains configurations common for all the environments.</p>
 
 <p>An environment file with all the options has the following form:</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="js"><span class="kd">var</span> <span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
 
     <span class="nx">http</span><span class="o">:</span> <span class="p">{</span>
@@ -69,12 +69,7 @@ The <code>all.js</code> file contains configurations common for all the environm
 
     <span class="nx">database</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-        <span class="nx">host</span><span class="o">:</span> <span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
-        <span class="nx">port</span><span class="o">:</span> <span class="mi">27017</span><span class="p">,</span>
-        <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;rhapsodyDB&#39;</span><span class="p">,</span>
-        <span class="nx">username</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span>
-        <span class="nx">password</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span>
-        <span class="nx">mongoOptions</span><span class="o">:</span> <span class="p">{}</span>
+        <span class="nx">defaultAdapter</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
     <span class="p">},</span>
 
     <span class="nx">log</span><span class="o">:</span> <span class="p">{</span>

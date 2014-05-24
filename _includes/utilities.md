@@ -33,6 +33,8 @@ The NodeJS community has already created some standard middlewares, and some of 
 * `Rhapsody.middlewares.session` [https://www.npmjs.org/package/express-session](https://www.npmjs.org/package/express-session)
 * `Rhapsody.middlewares.csurf` [https://www.npmjs.org/package/csurf](https://www.npmjs.org/package/csurf)
 * `Rhapsody.middlewares.cors` [https://www.npmjs.org/package/cors](https://www.npmjs.org/package/cors)
+* `Rhapsody.middlewares.ajaxOnly` [https://www.npmjs.org/package/ajax-only](https://www.npmjs.org/package/ajax-only)
+* `Rhapsody.middlewares.secureOnly` [https://www.npmjs.org/package/secure-only](https://www.npmjs.org/package/secure-only)
 
 ## App root folder
 

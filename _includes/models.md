@@ -3,7 +3,8 @@ All the models of an app must be in the `models` folder, inside the app folder.
 
 ## Accessing a model
 
-When programming some action view, you can require a model using the method: Rhapsody.requireModel(modelName), and then use it as a Mongoose model.
+When programming some action view, you can require a model using the method: Rhapsody.requireModel(modelName), and then use it as a [JugglingDB](https://github.com/1602/jugglingdb) model normally.
+To see how to use the models, check the [JugglingDB documentation](https://github.com/1602/jugglingdb).
 
 ## Spec
 
@@ -39,22 +40,20 @@ A model attribute can be writen by two ways:
     attributeWithoutOptions: attributeType,
 
     attributeWithOptions: {
-        option: optionValue
+        option: optionValue (see the options below)
     }
 ```
 
 ### Attribute types
 
-As RhapsodyJS uses Mongoose currently, you can use any of the [Mongoose datatypes](http://mongoosejs.com/docs/schematypes.html):
+As RhapsodyJS uses [JugglingDB](https://github.com/1602/jugglingdb) for database access, the attribute types dependes on the adapter you're using.
+But most of adapters accept the following attribute types:
 
 * `String`
 * `Number`
 * `Date`
-* `Buffer`
 * `Boolean`
-* `Mixed`
-* `Objectid`
-* `Array`
+* `Object` (You must pass the object, not write `Object` in the type)
 
 ### Attribute options
 
@@ -76,12 +75,13 @@ These methods will be both in the server-side models (returned from a database q
 
 Each on them, as the name says, will be attached to theirs respective sides (client-side and server-side) models.
 
-## Options
+## Model options
 
 A model can have the following options:
 
 * `allowRest` Allow the creation of a RESTful API for this model (see the RESTful API below)
 * `middlewares` Middlewares names (see the [Middlewares session](/middlewares.html)) tha the request to the RESTful API will pass before have access to the data.
+* `adapter` Name of the adapter this model uses (see the [Database adapters session](/configuration/database-adapters.html)). If not specified, will use the defaultAdapter (see [defaultAdapater](/configuration/environments.html))
 
 ## RESTful API
 
@@ -91,10 +91,19 @@ Terminology: `documents` are each of the data stored in a model collection
 
 The RESTful API of each model can be accessed by the path: /data/ModelName, so you can:
 
-* **POST** `/data/ModelName` Insert a new document to the *ModelName* collection with the data sent via POST
+* **POST** `/data/ModelName` Insert a new document to the *ModelName* collection with the data sent via POST and returns it
 * **GET** `/data/ModelName` Return all documents of the model *ModelName*
 * **GET** `/data/ModelName/<id>` Return the document of the model *ModelName* with the given *id*
 * **PUT** `/data/ModelName/<id>` Update the document of the model *ModelName* with the data sent via PUT
+* **PATCH** `/data/ModelName/<id>` Update partially the document of the model *ModelName* with the data sent via PATCH
 * **DELETE** `/data/ModelName/<id>` Delete the document with the given *id* from the *ModelName* collection
 
 All theses request will first pass by the model middlewares (if any).
+
+If you want just some attributes, you can pass it with the option "attrs" separating them with commas (no spaces), for example:
+
+`/data/ModelName/?attrs=name,registry`
+
+or
+
+`/data/ModelName/someID/?attrs=name,registry`

@@ -58,7 +58,7 @@ For it to work, some name patterns must be followed.</p>
 </ul>
 
 <p>For example, an app with a <code>band</code> controller with a <code>music</code> and a <code>member</code> controllers inside it, and a <code>genre</code> controller, would have the <code>controllers</code> folder like this:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">/controllers/
+<div class="highlight"><pre><code class="text">/controllers/
     |
     `- band/
     |   |
@@ -91,7 +91,7 @@ For it to work, some name patterns must be followed.</p>
 <p>The index.js file is where all the controller behavior will be programmed, with each of its views, configurations and so on.</p>
 
 <p>The spec of a controller file is:</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="kd">var</span> <span class="nx">ControllerName</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="js"><span class="kd">var</span> <span class="nx">ControllerName</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">mainView</span><span class="o">:</span> <span class="nx">mainViewName</span><span class="p">,</span>
     <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span><span class="cm">/* Middlewares that apply to the whole controller */</span><span class="p">]</span>
 
@@ -116,7 +116,7 @@ Should be an array of strings (so it will be the middleware with the same name i
 <p>Any of the views of this controller</p>
 
 <p>A view can be described by two ways:</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js">    <span class="nx">staticViewName</span><span class="o">:</span> <span class="s1">&#39;viewFile&#39;</span><span class="p">,</span>
+<div class="highlight"><pre><code class="js">    <span class="nx">staticViewName</span><span class="o">:</span> <span class="s1">&#39;viewFile&#39;</span><span class="p">,</span>
 
     <span class="nx">dynamicViewName</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">option</span><span class="o">:</span> <span class="nx">optionValue</span>
@@ -136,7 +136,7 @@ Should be an array of strings (so it will be the middleware with the same name i
 <h4>Dynamic views</h4>
 
 <p>The dynamic views must have a <code>action</code> option. This options can be described by two ways:</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js">    <span class="nx">dynamicViewWithFileName</span><span class="o">:</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="js">    <span class="nx">dynamicViewWithFileName</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;viewFile&#39;</span><span class="p">,</span>
         <span class="nx">middlewares</span><span class="o">:</span> <span class="p">[</span><span class="nx">middlewaresNames</span><span class="p">],</span>
         <span class="nx">params</span><span class="o">:</span> <span class="p">[</span><span class="nx">paramsNames</span><span class="p">]</span>
@@ -176,7 +176,7 @@ This middlewares can be used to create administrator areas, areas of a site that
 <h5>Params</h5>
 
 <p>It follows the Express params pattern, so if, in our example above, you want to see all the bands with the genre &quot;punk-rock&quot; from the 80&#39;s, you can create the following view in the genre controller:</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="nx">search</span><span class="o">:</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="js"><span class="nx">search</span><span class="o">:</span> <span class="p">{</span>
     <span class="nx">action</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">Band</span> <span class="o">=</span> <span class="nx">Rhapsody</span><span class="p">.</span><span class="nx">requireModel</span><span class="p">(</span><span class="s1">&#39;Band&#39;</span><span class="p">);</span>
 
@@ -206,7 +206,7 @@ This middlewares can be used to create administrator areas, areas of a site that
 <p>You can also specify custom routes for your views.</p>
 
 <p>Using our example above, if you want that the user just use <code>/genre-x-age/punk-rock/80</code> to look for punk rock bands of the 80&#39;s, you can add the following attribute to the view object:</p>
-<div class="highlight"><pre><code class="js language-js" data-lang="js"><span class="nx">customRoutes</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;/genre-x-age&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><code class="js"><span class="nx">customRoutes</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;/genre-x-age&#39;</span><span class="p">]</span>
 </code></pre></div>
 <p><strong>Don&#39;t forget the &#39;/&#39; in the begining of the custom route&#39;s path, or the custom routes won&#39;t work!</strong></p>
 
