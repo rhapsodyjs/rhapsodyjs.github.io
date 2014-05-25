@@ -7,7 +7,7 @@
   <link href="http://gmpg.org/xfn/11" rel="profile">
 
   <title>
-    Get started &middot; 
+    Session &middot; 
     RhapsodyJS docs
   </title>
 
@@ -61,30 +61,29 @@
     </header>
 
     <div class="content container">
-      <p>RhapsodyJS is a HMVC framework that runs on top of Express 4, it also auto-generate, in build time, a RESTful API with your database-agnostic Models.</p>
+      <p>In the <code>app/config/session.js</code> file you will have all the options for the use of sessions in your app.</p>
 
-<p>Browse the documentation to understand any the features, and see the <a href="https://github.com/rhapsodyjs/RhapsodyJS-examples">example projects</a>.</p>
+<p>This file can have the following options:</p>
+<div class="highlight"><pre><code class="js"><span class="p">{</span>
+    <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 
-<p>This documentatios is kinda simple, because it&#39;s the first documentatin, but I hope you find it useful and like the framework! =)</p>
+    <span class="c1">//The id of the session on the browser of the client</span>
+    <span class="nx">sessionIDKey</span><span class="o">:</span> <span class="s1">&#39;sessionID&#39;</span><span class="p">,</span>
 
-<h2>Install RhapsodyJS</h2>
+    <span class="c1">//The secret to use signed cookies. If &quot;undefined&quot;, the cookies will be unsigned</span>
+    <span class="nx">cookieSecret</span><span class="o">:</span> <span class="s1">&#39;rhapsodyCookieSecret&#39;</span><span class="p">,</span> 
 
-<p>To install RhapsodyJS, you must run the command:</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span>npm install rhapsody --global 
+    <span class="c1">//The secret used to protect the cookie key of the session in the browser of the client</span>
+    <span class="nx">sessionSecret</span><span class="o">:</span> <span class="s1">&#39;rhapsodySessionSecret&#39;</span><span class="p">,</span> 
+
+    <span class="c1">//The max age of the cookies. If &quot;undefined&quot;, the cookies will never expire</span>
+    <span class="nx">maxAge</span><span class="o">:</span> <span class="mi">60000</span><span class="p">,</span> 
+
+    <span class="c1">//If undefined, uses MemoryStore</span>
+    <span class="c1">//otherwise you must pass a store capable of store cookies/sessions</span>
+    <span class="nx">sessionStore</span><span class="o">:</span> <span class="kc">undefined</span>
+<span class="p">}</span>
 </code></pre></div>
-<h2>New app</h2>
-
-<p>To generate a new RhapsodyJS app, you should go to the folder where your app folder will be, and then run:</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span>rhapsody new APP_NAME
-</code></pre></div>
-<p>This will generate the basic structure of your app</p>
-
-<p>So do</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span><span class="nb">cd </span>APP_NAME
-    <span class="nv">$ </span>rhapsody run
-</code></pre></div>
-<p>And then your app will be running in <a href="http://localhost:4242">localhost:4242</a>.</p>
-
     </div>
 
   </body>

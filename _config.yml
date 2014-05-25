@@ -1,3 +1,12 @@
-name: RhapsodyJS documentation
+title: RhapsodyJS
+tagline:      'RhapsodyJS docs'
+description:  ''
+url:          http://rhapsodyjs.github.io
+version:      0.2.0
+author:
+  name:       ''
+  email:      ''
 markdown: redcarpet
 pygments: true
+permalink:    pretty
+paginate:     5

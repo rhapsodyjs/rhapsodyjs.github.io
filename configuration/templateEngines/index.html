@@ -7,7 +7,7 @@
   <link href="http://gmpg.org/xfn/11" rel="profile">
 
   <title>
-    Get started &middot; 
+    Template engines &middot; 
     RhapsodyJS docs
   </title>
 
@@ -61,30 +61,36 @@
     </header>
 
     <div class="content container">
-      <p>RhapsodyJS is a HMVC framework that runs on top of Express 4, it also auto-generate, in build time, a RESTful API with your database-agnostic Models.</p>
+      <p>RhapsodyJS allows you to use any template engine you want! (Well, <a href="https://github.com/visionmedia/consolidate.js/#supported-template-engines">almost it</a>).</p>
 
-<p>Browse the documentation to understand any the features, and see the <a href="https://github.com/rhapsodyjs/RhapsodyJS-examples">example projects</a>.</p>
+<p>In this file you will define the template engines you&#39;ll be using in your app, and the default engine if you don&#39;t specify a file extension when rendering a view.</p>
 
-<p>This documentatios is kinda simple, because it&#39;s the first documentatin, but I hope you find it useful and like the framework! =)</p>
+<p>Don&#39;t forget that you need to isntall in your project the template engine you want to use.</p>
 
-<h2>Install RhapsodyJS</h2>
+<p>A example file of an app that used EJS and Handlebars as templates engines is:</p>
+<div class="highlight"><pre><code class="js"><span class="p">{</span>
+  <span class="nx">defaultEngine</span><span class="o">:</span> <span class="s1">&#39;ejs&#39;</span><span class="p">,</span>
 
-<p>To install RhapsodyJS, you must run the command:</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span>npm install rhapsody --global 
+  <span class="nx">engines</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">ejs</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">extension</span><span class="o">:</span> <span class="s1">&#39;ejs&#39;</span><span class="p">,</span>
+      <span class="nx">lib</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;ejs&#39;</span><span class="p">)</span>
+    <span class="p">},</span>
+
+    <span class="nx">handlebars</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">extension</span><span class="o">:</span> <span class="s1">&#39;hbs&#39;</span><span class="p">,</span>
+      <span class="nx">lib</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;handlebars&#39;</span><span class="p">)</span>
+    <span class="p">},</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * engineName: {</span>
+<span class="cm">     *  extension: &#39;engineExtension&#39;,</span>
+<span class="cm">     *  lib: require(&#39;engine&#39;)</span>
+<span class="cm">     * }</span>
+<span class="cm">     */</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<h2>New app</h2>
-
-<p>To generate a new RhapsodyJS app, you should go to the folder where your app folder will be, and then run:</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span>rhapsody new APP_NAME
-</code></pre></div>
-<p>This will generate the basic structure of your app</p>
-
-<p>So do</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span><span class="nb">cd </span>APP_NAME
-    <span class="nv">$ </span>rhapsody run
-</code></pre></div>
-<p>And then your app will be running in <a href="http://localhost:4242">localhost:4242</a>.</p>
-
     </div>
 
   </body>

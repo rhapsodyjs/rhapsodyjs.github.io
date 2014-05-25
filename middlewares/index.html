@@ -7,7 +7,7 @@
   <link href="http://gmpg.org/xfn/11" rel="profile">
 
   <title>
-    Get started &middot; 
+    Middlewares &middot; 
     RhapsodyJS docs
   </title>
 
@@ -61,29 +61,30 @@
     </header>
 
     <div class="content container">
-      <p>RhapsodyJS is a HMVC framework that runs on top of Express 4, it also auto-generate, in build time, a RESTful API with your database-agnostic Models.</p>
+      <p>A middleware is like a Controller action, but it receive three parameters:</p>
 
-<p>Browse the documentation to understand any the features, and see the <a href="https://github.com/rhapsodyjs/RhapsodyJS-examples">example projects</a>.</p>
+<ul>
+<li><code>req</code>: Request object</li>
+<li><code>res</code>: Response object</li>
+<li><code>next</code>: Calls the next route for the URL if the request passes the middleware</li>
+</ul>
 
-<p>This documentatios is kinda simple, because it&#39;s the first documentatin, but I hope you find it useful and like the framework! =)</p>
-
-<h2>Install RhapsodyJS</h2>
-
-<p>To install RhapsodyJS, you must run the command:</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span>npm install rhapsody --global 
+<p>For example, a middleware that checks if a user is logged and, if so, take it to the info page, otherwise take it to the login page would look like this:</p>
+<div class="highlight"><pre><code class="js">    <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">logged</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span> <span class="o">!==</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">next</span><span class="p">();</span>
+      <span class="p">}</span>
+      <span class="k">else</span> <span class="p">{</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">};</span>
 </code></pre></div>
-<h2>New app</h2>
+<p>RhapsodyJS is also compatible with any Connect or Express middleware! (But you got to install them in your project before use it).</p>
 
-<p>To generate a new RhapsodyJS app, you should go to the folder where your app folder will be, and then run:</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span>rhapsody new APP_NAME
+<p>So, for example, if you want to use an middleware called <code>blablabla</code> that you installed in your project, you can just:</p>
+<div class="highlight"><pre><code class="js">    <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;blablabla&#39;</span><span class="p">);</span>
 </code></pre></div>
-<p>This will generate the basic structure of your app</p>
-
-<p>So do</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span><span class="nb">cd </span>APP_NAME
-    <span class="nv">$ </span>rhapsody run
-</code></pre></div>
-<p>And then your app will be running in <a href="http://localhost:4242">localhost:4242</a>.</p>
+<p>Or pass the <code>require(&#39;blablabla&#39;)</code> directly in the array of middlewares.</p>
 
     </div>
 

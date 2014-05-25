@@ -7,7 +7,7 @@
   <link href="http://gmpg.org/xfn/11" rel="profile">
 
   <title>
-    Get started &middot; 
+    Database adapters &middot; 
     RhapsodyJS docs
   </title>
 
@@ -61,29 +61,31 @@
     </header>
 
     <div class="content container">
-      <p>RhapsodyJS is a HMVC framework that runs on top of Express 4, it also auto-generate, in build time, a RESTful API with your database-agnostic Models.</p>
+      <p>In the <code>app/config/db-adapters.js</code> file you will register all the JugglingDB adapters you&#39;ll be using in your app</p>
 
-<p>Browse the documentation to understand any the features, and see the <a href="https://github.com/rhapsodyjs/RhapsodyJS-examples">example projects</a>.</p>
-
-<p>This documentatios is kinda simple, because it&#39;s the first documentatin, but I hope you find it useful and like the framework! =)</p>
-
-<h2>Install RhapsodyJS</h2>
-
-<p>To install RhapsodyJS, you must run the command:</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span>npm install rhapsody --global 
+<p>This file has the following spec:</p>
+<div class="highlight"><pre><code class="js"><span class="p">{</span>
+    <span class="nx">adapterOneName</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">lib</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;adapterOne&#39;</span><span class="p">),</span>
+        <span class="nx">adapterOption1</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">adapterOption2</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">adapterOption3</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">adapterOptionN</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">},</span>
+    <span class="nx">adapterTwoName</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">lib</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;adapterTwo&#39;</span><span class="p">),</span>
+        <span class="nx">adapterOption1</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">adapterOption2</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">adapterOption3</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="nx">adapterOptionN</span><span class="o">:</span> <span class="s1">&#39;&#39;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div>
-<h2>New app</h2>
+<p>The options depends of the adapter you&#39;ll use, here you can see <a href="https://github.com/1602/jugglingdb#jugglingdb-adapters">all adapters JugglingDB has</a>.</p>
 
-<p>To generate a new RhapsodyJS app, you should go to the folder where your app folder will be, and then run:</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span>rhapsody new APP_NAME
-</code></pre></div>
-<p>This will generate the basic structure of your app</p>
+<p><strong>Don&#39;t forget to install the adapter you want to use in your project and add it to the package.json file !</strong></p>
 
-<p>So do</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span><span class="nb">cd </span>APP_NAME
-    <span class="nv">$ </span>rhapsody run
-</code></pre></div>
-<p>And then your app will be running in <a href="http://localhost:4242">localhost:4242</a>.</p>
+<p>To use the built-in adapters of JugglingDB, just pass their names in the <code>lib</code> option.</p>
 
     </div>
 

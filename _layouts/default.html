@@ -1,52 +1,46 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>RhapsodyJS docs - {{ page.title }}</title>
-  <meta name="viewport" content="width=device-width">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 
-  <!-- syntax highlighting CSS -->
-  <link rel="stylesheet" href="/css/syntax.css">
+  {% include head.html %}
 
-  <!-- GitHub markdown CSS -->
-  <link rel="stylesheet" href="/css/markdown.css">
+  <body>
 
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
-  <div id="sidebar">
-    <img id="logo" src="https://cloud.githubusercontent.com/assets/4325587/2675412/53a4b692-c118-11e3-8147-2f7d99355ae5.png" alt="RhapsodyJS">
+    <header class="masthead">
+      <div class="masthead-inner">
+        <img id="logo" src="/public/logo-site.png" alt="{{ site.title }}">
+        <p class="lead">{{ site.description }}</p>
 
-    <nav>
-      <div class="item"><a href="/">Get started</a></div>
-      <div class="item"><a href="/controllers.html">Controllers</a></div>
-      <div class="item"><a href="/middlewares.html">Middlewares</a></div>
-      <div class="item"><a href="/models.html">Models</a></div>
-      <div class="item"><a href="/classes.html">Classes</a></div>
-      <div class="item"><a href="/utilities.html">Utilities</a></div>
-      <div class="item">
-        <a href="/configuration/">Configuration</a>
-        <div><a href="/configuration/environments.html">Environments</a></div>
-        <div><a href="/configuration/database-adapters.html">Database adapters</a></div>
-        <div><a href="/configuration/templateEngines.html">Template engines</a></div>
-        <div><a href="/configuration/error.html">Error</a></div>
-        <div><a href="/configuration/session.html">Session</a></div>
-        <div><a href="/configuration/socket.html">Socket</a></div>
-        <div><a href="/configuration/bootstrap.html">Bootstraping</a></div>
-        <div><a href="/configuration/csrf.html">CSRF</a></div>
+        <div class="colophon">
+          <ul class="colophon-links">
+            <li><a href="/">Get started</a></li>
+            <li><a href="/controllers">Controllers</a></li>
+            <li><a href="/middlewares">Middlewares</a></li>
+            <li><a href="/models">Models</a></li>
+            <li><a href="/classes">Classes</a></li>
+            <li><a href="/utilities">Utilities</a></li>
+            <li>
+              <a href="/configuration/">Configuration</a>
+              <ul>
+                <li><a href="/configuration/environments">Environments</a></li>
+                <li><a href="/configuration/database-adapters">Database adapters</a></li>
+                <li><a href="/configuration/templateEngines">Template engines</a></li>
+                <li><a href="/configuration/error">Error</a></li>
+                <li><a href="/configuration/session">Session</a></li>
+                <li><a href="/configuration/socket">Socket</a></li>
+                <li><a href="/configuration/bootstrap">Bootstraping</a></li>
+                <li><a href="/configuration/csrf">CSRF</a></li>
+              </ul>
+            </li>
+            <li><a href="https://github.com/rhapsodyjs/RhapsodyJS" target="_blank">GitHub</a></li>
+          </ul>
+          <!-- <p>&copy; 2014. {{ site.author.name }} All rights reserved.</p> -->
+        </div>
       </div>
-      <div class="item"><a href="https://github.com/rhapsodyjs/RhapsodyJS" target="_blank">GitHub</a></div>
-    </nav>
-  </div>
+    </header>
 
-  <div id="main-container">
-    <div id="main">
-      <h1 class="title">{{page.title}}</h1>
-
+    <div class="content container">
       {{ content }}
     </div>
-  </div>
-</body>
+
+  </body>
 </html>

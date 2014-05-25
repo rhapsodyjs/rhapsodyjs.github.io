@@ -7,7 +7,7 @@
   <link href="http://gmpg.org/xfn/11" rel="profile">
 
   <title>
-    Get started &middot; 
+    Error &middot; 
     RhapsodyJS docs
   </title>
 
@@ -61,29 +61,14 @@
     </header>
 
     <div class="content container">
-      <p>RhapsodyJS is a HMVC framework that runs on top of Express 4, it also auto-generate, in build time, a RESTful API with your database-agnostic Models.</p>
+      <p>In the <code>app/config/error</code> folder you will find three files.</p>
 
-<p>Browse the documentation to understand any the features, and see the <a href="https://github.com/rhapsodyjs/RhapsodyJS-examples">example projects</a>.</p>
+<p>In the <code>error.js</code> you will have the handler for errors 404 and 500.
+They come with a default behavior, but you can change it.</p>
 
-<p>This documentatios is kinda simple, because it&#39;s the first documentatin, but I hope you find it useful and like the framework! =)</p>
+<p>The code for Error 500 fill run when a uncaught exception happen in your app, so take care on it! =)</p>
 
-<h2>Install RhapsodyJS</h2>
-
-<p>To install RhapsodyJS, you must run the command:</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span>npm install rhapsody --global 
-</code></pre></div>
-<h2>New app</h2>
-
-<p>To generate a new RhapsodyJS app, you should go to the folder where your app folder will be, and then run:</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span>rhapsody new APP_NAME
-</code></pre></div>
-<p>This will generate the basic structure of your app</p>
-
-<p>So do</p>
-<div class="highlight"><pre><code class="sh">    <span class="nv">$ </span><span class="nb">cd </span>APP_NAME
-    <span class="nv">$ </span>rhapsody run
-</code></pre></div>
-<p>And then your app will be running in <a href="http://localhost:4242">localhost:4242</a>.</p>
+<p>The other files are the views of the pages of error 404 and 500, you can also change it.</p>
 
     </div>
 
