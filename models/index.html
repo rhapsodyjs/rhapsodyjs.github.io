@@ -37,7 +37,12 @@
             <li><a href="/">Get started</a></li>
             <li><a href="/controllers">Controllers</a></li>
             <li><a href="/middlewares">Middlewares</a></li>
-            <li><a href="/models">Models</a></li>
+            <li>
+              <a href="/models">Models</a>
+              <ul>
+                <li><a href="/models/rest-api">REST API</a></li>
+              </ul>
+            </li>
             <li><a href="/classes">Classes</a></li>
             <li><a href="/utilities">Utilities</a></li>
             <li>
@@ -45,7 +50,7 @@
               <ul>
                 <li><a href="/configuration/environments">Environments</a></li>
                 <li><a href="/configuration/database-adapters">Database adapters</a></li>
-                <li><a href="/configuration/templateEngines">Template engines</a></li>
+                <li><a href="/configuration/template-engines">Template engines</a></li>
                 <li><a href="/configuration/error">Error</a></li>
                 <li><a href="/configuration/session">Session</a></li>
                 <li><a href="/configuration/socket">Socket</a></li>
@@ -123,7 +128,7 @@ But most of adapters accept the following attribute types:</p>
 <li><code>serverValidations</code> Array of method <em>names</em> (that must be in the serverMethods) that validates the attribute</li>
 <li><code>default</code> Default value of the attribute</li>
 <li><code>required</code> If the attribute is required</li>
-<li><code>restricted</code> If the attribute is omited when the model is sent with the RESTful API (see <code>RESTful API</code> below)</li>
+<li><code>restricted</code> If the attribute is omited when the model is sent with the RESTful API (see <a href="/models/rest-api">REST API</a>)</li>
 </ul>
 
 <h2>Methods</h2>
@@ -141,37 +146,10 @@ But most of adapters accept the following attribute types:</p>
 <p>A model can have the following options:</p>
 
 <ul>
-<li><code>allowRest</code> Allow the creation of a RESTful API for this model (see the RESTful API below)</li>
-<li><code>middlewares</code> Middlewares names (see the <a href="/middlewares.html">Middlewares session</a>) tha the request to the RESTful API will pass before have access to the data.</li>
-<li><code>adapter</code> Name of the adapter this model uses (see the <a href="/configuration/database-adapters.html">Database adapters session</a>). If not specified, will use the defaultAdapter (see <a href="/configuration/environments.html">defaultAdapater</a>)</li>
+<li><code>allowRest</code> Allow the creation of a RESTful API for this model (see <a href="/models/rest-api">REST API</a>)</li>
+<li><code>middlewares</code> Middlewares names (see the <a href="/middlewares">Middlewares session</a>) tha the request to the RESTful API will pass before have access to the data.</li>
+<li><code>adapter</code> Name of the adapter this model uses (see the <a href="/configuration/database-adapters">Database adapters session</a>). If not specified, will use the defaultAdapter (see <a href="/configuration/environments">defaultAdapater</a>)</li>
 </ul>
-
-<h2>RESTful API</h2>
-
-<p>RhapsodyJS creates automatically a RESTful API for each model (that can be disabled setting the allowRest option of the model as <code>false</code>).</p>
-
-<p>Terminology: <code>documents</code> are each of the data stored in a model collection</p>
-
-<p>The RESTful API of each model can be accessed by the path: /data/ModelName, so you can:</p>
-
-<ul>
-<li><strong>POST</strong> <code>/data/ModelName</code> Insert a new document to the <em>ModelName</em> collection with the data sent via POST and returns it</li>
-<li><strong>GET</strong> <code>/data/ModelName</code> Return all documents of the model <em>ModelName</em></li>
-<li><strong>GET</strong> <code>/data/ModelName/&lt;id&gt;</code> Return the document of the model <em>ModelName</em> with the given <em>id</em></li>
-<li><strong>PUT</strong> <code>/data/ModelName/&lt;id&gt;</code> Update the document of the model <em>ModelName</em> with the data sent via PUT</li>
-<li><strong>PATCH</strong> <code>/data/ModelName/&lt;id&gt;</code> Update partially the document of the model <em>ModelName</em> with the data sent via PATCH</li>
-<li><strong>DELETE</strong> <code>/data/ModelName/&lt;id&gt;</code> Delete the document with the given <em>id</em> from the <em>ModelName</em> collection</li>
-</ul>
-
-<p>All theses request will first pass by the model middlewares (if any).</p>
-
-<p>If you want just some attributes, you can pass it with the option &quot;attrs&quot; separating them with commas (no spaces), for example:</p>
-
-<p><code>/data/ModelName/?attrs=name,registry</code></p>
-
-<p>or</p>
-
-<p><code>/data/ModelName/someID/?attrs=name,registry</code></p>
 
     </div>
 
