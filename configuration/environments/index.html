@@ -22,6 +22,13 @@
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <style>
+    #logo {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 
 
@@ -139,9 +146,22 @@ The <code>all.js</code> file contains configurations common for all the environm
         <span class="nx">enabled</span><span class="o">:</span> <span class="kc">false</span>
     <span class="p">},</span>
 
-    <span class="nx">generateClientModels</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="nx">clientModels</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="c1">//Adapter that generates userside models based on your models, defaults to rhapsodyjs-backbone https://github.com/rhapsodyjs/rhapsodyjs-backbone</span>
+      <span class="nx">adapter</span><span class="o">:</span> <span class="kc">undefined</span>
+    <span class="p">},</span>
+
+
+    <span class="c1">//Enable it if you want that RhapsodyJS runs a process to each of your CPUs</span>
+    <span class="c1">//making your app more scalable</span>
+    <span class="nx">cluster</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+<p><strong>Important</strong>: Turn <code>cluster</code> off when runing tests on your app (with Mocha, for example), otherwise it won&#39;t work</p>
+
     </div>
 
   </body>
