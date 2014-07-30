@@ -84,7 +84,7 @@ To see how to use the models, check the <a href="https://github.com/1602/jugglin
 <h2>Spec</h2>
 <div class="highlight"><pre><code class="js"><span class="kd">var</span> <span class="nx">ModelName</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">attributes</span><span class="o">:</span> <span class="p">{</span>
-        <span class="c1">//Write the attributes here</span>
+        <span class="c1">//Model attributes  (see below)</span>
     <span class="p">},</span>
 
     <span class="nx">sharedMethods</span><span class="o">:</span> <span class="p">{</span>
@@ -100,7 +100,11 @@ To see how to use the models, check the <a href="https://github.com/1602/jugglin
     <span class="p">},</span>
 
     <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
-        <span class="c1">//Model options</span>
+        <span class="c1">//Model options (see below)</span>
+    <span class="p">},</span>
+
+    <span class="nx">relationships</span><span class="o">:</span> <span class="p">{</span>
+        <span class="c1">//Model relationships (see below)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -135,7 +139,7 @@ But most of adapters accept the following attribute types:</p>
 <li><code>serverValidations</code> Array of method <em>names</em> (that must be in the serverMethods) that validates the attribute</li>
 <li><code>default</code> Default value of the attribute</li>
 <li><code>required</code> If the attribute is required</li>
-<li><code>restricted</code> If the attribute is omited when the model is sent with the RESTful API (see <a href="/models/rest-api">REST API</a>)</li>
+<li><code>restricted</code> If the attribute should be omited when the model is sent via RESTful API (see <a href="/models/rest-api">REST API</a>)</li>
 </ul>
 
 <h2>Methods</h2>
@@ -158,7 +162,53 @@ But most of adapters accept the following attribute types:</p>
 <li><code>adapter</code> Name of the adapter this model uses (see the <a href="/configuration/database-adapters">Database adapters session</a>). If not specified, will use the defaultAdapter (see <a href="/configuration/environments">defaultAdapater</a>)</li>
 </ul>
 
+<h2>Relationships</h2>
+
+<p>Here you&#39;ll set the relationships between your model and other models.
+Each relationship is in the form:</p>
+<div class="highlight"><pre><code class="js">    <span class="nx">relationshipName</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nx">relationshipType</span><span class="p">,</span>
+        <span class="kd">with</span><span class="o">:</span> <span class="nx">relatedModel</span><span class="cm">/*,</span>
+<span class="cm">        through: relationshipModel (see below),</span>
+<span class="cm">        foreignKey: relationshipForeignKey (see below)</span>
+<span class="cm">        */</span>
+    <span class="p">}</span>
+</code></pre></div>
+<h3>Relationship types</h3>
+
+<p>Each relationship can have one of the following types:</p>
+
+<ul>
+<li><code>hasMany</code></li>
+<li><code>belongsTo</code></li>
+<li><code>hasAndBelongsToMany</code></li>
+</ul>
+
+<h3>Relationship with</h3>
+
+<p>Should be the name (<strong>not the require</strong>) of the model that it&#39;s related to.</p>
+
+<h3>Relationship through</h3>
+
+<p>If it&#39;s a <code>hasAndBelongsToMany</code>, you can choose to it happen through one of your models.
+You can set it by this property, setting is as the name (<strong>no the require</strong>) of the model of the relationship.</p>
+
+<h3>Relationship foreignKey</h3>
+
+<p>If it&#39;s a <code>hasMany</code> or <code>belongsTo</code> relationship, you can set here what&#39;s the foreign key that &quot;links&quot; the two models.</p>
+
     </div>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-53358032-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
 
   </body>
 </html>
