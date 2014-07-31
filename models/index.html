@@ -99,6 +99,10 @@ To see how to use the models, check the <a href="https://github.com/1602/jugglin
         <span class="c1">//Methods that will be only in the server-side model</span>
     <span class="p">},</span>
 
+    <span class="nx">hooks</span><span class="o">:</span> <span class="p">{</span>
+        <span class="c1">//Hooks (see below)</span>
+    <span class="p">}</span>
+
     <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>
         <span class="c1">//Model options (see below)</span>
     <span class="p">},</span>
@@ -160,6 +164,27 @@ But most of adapters accept the following attribute types:</p>
 <li><code>allowRest</code> Allow the creation of a RESTful API for this model (see <a href="/models/rest-api">REST API</a>)</li>
 <li><code>middlewares</code> Middlewares names (see the <a href="/middlewares">Middlewares session</a>) tha the request to the RESTful API will pass before have access to the data.</li>
 <li><code>adapter</code> Name of the adapter this model uses (see the <a href="/configuration/database-adapters">Database adapters session</a>). If not specified, will use the defaultAdapter (see <a href="/configuration/environments">defaultAdapater</a>)</li>
+</ul>
+
+<h2>Hooks</h2>
+
+<p>In this option you&#39;ll set the hooks of your model. Each hook accepts a single argument <code>next</code>, that you&#39;ll call after the hook
+is complete (i.e. the hooks are asynchronous). To access the properties of the model, use <code>this</code> (e.g. <code>this.name</code> to access the <code>name</code> property).</p>
+
+<p>The supported hooks are:</p>
+
+<ul>
+<li><code>afterInitialize</code></li>
+<li><code>beforeCreate</code></li>
+<li><code>afterCreate</code></li>
+<li><code>beforeSave</code></li>
+<li><code>afterSave</code></li>
+<li><code>beforeUpdate</code></li>
+<li><code>afterUpdate</code></li>
+<li><code>beforeDestroy</code></li>
+<li><code>afterDestroy</code></li>
+<li><code>beforeValidate</code></li>
+<li><code>afterValidate</code></li>
 </ul>
 
 <h2>Relationships</h2>
