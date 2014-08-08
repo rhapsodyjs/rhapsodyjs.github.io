@@ -132,6 +132,10 @@ The <code>all.js</code> file contains configurations common for all the environm
         <span class="nx">allowREST</span><span class="o">:</span> <span class="kc">true</span>
     <span class="p">},</span>
 
+    <span class="nx">globals</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">models</span><span class="o">:</span> <span class="kc">false</span> <span class="c1">//Allow to set the models as globals, so you don&#39;t need to use Rhapsody.requireModel() (defaults to false)</span>
+    <span class="p">},</span>
+
     <span class="c1">//If true, uploaded files via form will be at req.file</span>
     <span class="nx">upload</span><span class="o">:</span> <span class="p">{</span>
         <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -148,8 +152,13 @@ The <code>all.js</code> file contains configurations common for all the environm
 
     <span class="nx">clientModels</span><span class="o">:</span> <span class="p">{</span>
       <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+
       <span class="c1">//Adapter that generates userside models based on your models, defaults to rhapsodyjs-backbone https://github.com/rhapsodyjs/rhapsodyjs-backbone</span>
-      <span class="nx">adapter</span><span class="o">:</span> <span class="kc">undefined</span>
+      <span class="nx">adapter</span><span class="o">:</span> <span class="kc">undefined</span><span class="p">,</span>
+
+      <span class="c1">//Destination of the client models that has generateClientModels set to true relative to your app root (the folder there are `app.js`, `app` and `node_modules`)</span>
+      <span class="c1">//Defaults to &#39;app/public/models&#39;</span>
+      <span class="nx">destination</span><span class="o">:</span> <span class="kc">undefined</span>
     <span class="p">},</span>
 
 

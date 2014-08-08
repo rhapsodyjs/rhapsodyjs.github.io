@@ -161,9 +161,10 @@ But most of adapters accept the following attribute types:</p>
 <p>A model can have the following options:</p>
 
 <ul>
-<li><code>allowRest</code> Allow the creation of a RESTful API for this model (see <a href="/models/rest-api">REST API</a>)</li>
+<li><code>allowREST</code> Allow the creation of a RESTful API for this model (see <a href="/models/rest-api">REST API</a>) (defaults to true)</li>
 <li><code>middlewares</code> Middlewares names (see the <a href="/middlewares">Middlewares session</a>) tha the request to the RESTful API will pass before have access to the data.</li>
 <li><code>adapter</code> Name of the adapter this model uses (see the <a href="/configuration/database-adapters">Database adapters session</a>). If not specified, will use the defaultAdapter (see <a href="/configuration/environments">defaultAdapater</a>)</li>
+<li><code>generateClientModel</code> If, when building the app, RhapsodyJS should create a client model for this model, based in the <code>clientModelAdapter</code> you&#39;ve set on the en<a href="/configuration/environments/">vironment config file</a> of your app (defaults to true).</li>
 </ul>
 
 <h2>Hooks</h2>
