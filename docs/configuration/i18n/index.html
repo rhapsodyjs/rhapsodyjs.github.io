@@ -1,0 +1,255 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <script src="/js/vendor/modernizr.js"></script>
+  <meta charset="utf-8">
+  <title>Internationalization (I18n) | RhapsodyJS</title>
+
+  
+  <meta name="description" content="  
+  
+    
+    
+      Internationalization (I18n)
+      
+    
+    
+    RhapsodyJS uses a fork of Consolidate build specially for support I18n, call...">
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rhapsodyjs.github.io/docs/configuration/i18n/">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/touch-favicon.png">
+  <link rel="shortcut icon" href="/img/favicon.png">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/markdown.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+  <script src="/js/vendor/jquery.js"></script>
+  <script src="/js/vendor/fastclick.js"></script>
+
+  <script src="/js/foundation.min.js"></script>
+
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+
+
+  <script>
+
+  $(document).ready(function(){
+    $(document).foundation();
+  });
+
+  </script>
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:300,300italic,500,500italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body  >
+  <header role="banner" class="top-header"><!--<hgroup>
+  <h1 class="text-center">
+  	<a href="/">RhapsodyJS</a>
+  </h1>
+  
+</hgroup>-->
+
+<!--<ul class="example-orbit-content" data-orbit>
+  <li data-orbit-slide="headline-1">
+    <div>
+      <h2>Headline 1</h2>
+      <h3>Subheadline</h3>
+    </div>
+  </li>
+  <li data-orbit-slide="headline-2">
+    <div>
+      <h2>Headline 2</h2>
+      <h3>Subheadline</h3>
+    </div>
+  </li>
+  <li data-orbit-slide="headline-3">
+    <div>
+      <h2>Headline 3</h2>
+      <h3>Subheadline</h3>
+    </div>
+  </li>
+</ul>-->
+</header>
+  <nav role="navigation"><ul class="subscription hide" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+
+
+
+  <nav class="top-bar" data-topbar>
+
+    <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">RhapsodyJS</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+    </ul>
+
+    <section class="top-bar-section">
+
+      <ul class="main-navigation right">
+
+          <li><a href="/">Home</a></li>
+          <li><a href="/get-started/">Get started</a></li>
+          <li class="active"><a href="/docs/">Docs</a></li>
+          <li><a href="https://github.com/rhapsodyjs/RhapsodyJS" target="_blank"><i class="fa fa-github-square"></i> Github</a></li>
+
+      </ul>
+
+    </section>
+  </nav>
+</nav>
+  <div id="main">
+    <div id="content" class="row">
+        <div class="small-12 medium-12 large-8 large-push-4 columns">
+  <article role="article">
+    
+    <header class="page-header">
+      <h1 class="page-title">Internationalization (I18n)</h1>
+      
+    </header>
+    
+    <p>RhapsodyJS uses a fork of Consolidate build specially for support I18n, called <a href="https://github.com/talyssonoc/consolid8ion">Consolid8ion</a>.</p>
+
+<p>Due to the limitation of some template engines, if you want to use I18n you won&#39;t be able to choose
+any template engine Consolidate originally supports, but the best template engines will support it, 
+don&#39;t worry, you&#39;ll see bellow! =)</p>
+
+<p>Also, some logic-less template engines, like Mustache, won&#39;t support I18n in the view with all its
+power, but you will still be able to pass the internationalized to the view using <code>Rhapsody.i18n.i18n(&lt;arguments&gt;)</code>.</p>
+
+<p>To enable i18n in your app, you must change the <code>enabled</code> flag to <strong>true</strong> in your <code>app/config/i18n.js</code> file,
+set your locales, the default locale, and say to RhapsodyJS from where it will &quot;discover&quot; the user&#39;s locale.</p>
+
+<p>The <code>i18n.js</code> file has the following spec:</p>
+<div class="highlight"><pre><code class="js"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">locales</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;en&#39;</span><span class="p">],</span>
+    <span class="nx">defaultLocale</span><span class="o">:</span> <span class="s1">&#39;en&#39;</span><span class="p">,</span>
+    <span class="nx">getLocaleFrom</span><span class="o">:</span> <span class="s1">&#39;query&#39;</span> <span class="c1">//See bellow</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3>getLocaleFrom</h3>
+
+<p>This will set from where RhapsodyJS will automatically gets the user&#39;s locale, this option
+must have one of the following values:</p>
+
+<ul>
+<li><code>query</code> The locale will come from &quot;?locale=LOCALE_NAME&quot; in the URL of the page.</li>
+<li><code>cookies</code> The locale will come from &quot;locale&quot; field on the user&#39;s cookies.</li>
+<li><code>session</code> The locale will come from &quot;locale&quot; field on the user&#39;s session.</li>
+<li><code>subdomain</code> The locale will come from the first subdomain of the page (e.g., in &quot;en.wikipedia.org&quot;, &quot;en&quot; is the locale).</li>
+<li><code>header</code> The locale will come from the &quot;accept-language&quot; header field.</li>
+</ul>
+
+<h2>Locale files</h2>
+
+<p>All your locale files will live in <code>app/locales</code> folder.</p>
+
+<p>As Consolid8ion uses <a href="https://github.com/talyssonoc/i18node">I18Node</a> inside of it,
+your locale files must be JSON files following the specification described in
+the <a href="https://github.com/talyssonoc/i18node#usage">I18Node README</a>.</p>
+
+<h2>Using I18n in the view</h2>
+
+<p>The way you use I18n inside the views changes according ot the template engine
+you&#39;re using.</p>
+
+<p>The template engines that support Consolid8ion with all its power are:</p>
+
+<ul>
+<li><a href="https://www.npmjs.org/package/eco">ECO</a></li>
+<li><a href="https://www.npmjs.org/package/ect">ECT</a></li>
+<li><a href="https://www.npmjs.org/package/ejs">EJS</a></li>
+<li><a href="https://www.npmjs.org/package/hamljs">HAML</a></li>
+<li><a href="https://www.npmjs.org/package/haml-coffee">HAML Coffee</a></li>
+<li><a href="https://www.npmjs.org/package/handlebars">Handlebars</a></li>
+<li><a href="https://www.npmjs.org/package/jade">Jade</a></li>
+<li><a href="https://www.npmjs.org/package/jazz">Jazz</a></li>
+<li><a href="https://www.npmjs.org/package/nunjucks">Nunjucks</a></li>
+<li><a href="https://www.npmjs.org/package/qejs">QEJS</a></li>
+<li><a href="https://www.npmjs.org/package/swig">SWIG</a></li>
+</ul>
+
+<p>And you will have partially support to I18n using one of the following template engines:</p>
+
+<ul>
+<li><a href="https://www.npmjs.org/package/dustjs-linkedin">Dust</a></li>
+<li><a href="https://www.npmjs.org/package/hogan.js">Hogan</a></li>
+<li><a href="https://www.npmjs.org/package/mustache">Mustache</a></li>
+</ul>
+
+<p>You can view a little example of the usage of I18n with one of the template engines
+in the <a href="https://github.com/talyssonoc/consolid8ion/tree/master/test/test-project/views">Consolid8ion test views</a>.</p>
+
+    
+  </article>
+  </div><!--.columns-->
+  
+  <aside class="sidebar small-12 medium-12 large-pull-8 large-4 columns">
+    <section>
+	
+	<h4><i class="fa fa-folder"></i> Table of contents</h4>
+
+	<ul class="side-nav no-bullet">
+	  <li><a href="/get-started">Get started</a></li>
+	  <li><a href="/docs/controllers">Controllers</a></li>
+	  <li><a href="/docs/middlewares">Middlewares</a></li>
+	  <li>
+	    <a href="/docs/models">Models</a>
+	    <ul>
+	      <li><a href="/docs/models/rest-api">REST API</a></li>
+	    </ul>
+	  </li>
+	  <li><a href="/docs/classes">Classes</a></li>
+	  <li><a href="/docs/utilities">Utilities</a></li>
+	  <li>
+	    <a href="/docs/configuration/">Configuration</a>
+	    <ul>
+	      <li><a href="/docs/configuration/environments">Environments</a></li>
+	      <li><a href="/docs/configuration/database-adapters">Database adapters</a></li>
+	      <li><a href="/docs/configuration/template-engines">Template engines</a></li>
+	      <li><a href="/docs/configuration/i18n">Internationalization (I18n)</a></li>
+	      <li><a href="/docs/configuration/error">Error</a></li>
+	      <li><a href="/docs/configuration/session">Session</a></li>
+	      <li><a href="/docs/configuration/socket">Socket</a></li>
+	      <li><a href="/docs/configuration/bootstrap">Bootstraping</a></li>
+	      <li><a href="/docs/configuration/csrf">CSRF</a></li>
+	    </ul>
+	  </li>
+	</ul>
+
+</section>
+  </aside>
+  
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p class="text-center">
+  <span class="copyright">
+  	
+  </span>
+
+  <span class="credit">
+  	Theme by <a href="http://annekjohnson.com" target="_blank">Anne Johnson</a>
+  </span>
+</p>
+</footer>
+  
+</body>
+</html>

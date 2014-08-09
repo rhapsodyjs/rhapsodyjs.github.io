@@ -6,20 +6,21 @@
 <head>
   <script src="/js/vendor/modernizr.js"></script>
   <meta charset="utf-8">
-  <title>RhapsodyJS</title>
+  <title>Configuration | RhapsodyJS</title>
 
   
   <meta name="description" content="  
   
     
     
-  
-  An epic HMVC framework for Node!
+      Configuration
+      
+    
+    
+    The configuration file app/config/config.js is where the environment is set.
 
-
-Build high-performance, safe, organized and epic apps!
-
-RhapsodyJS allows you to create sca...">
+Environment
+...">
   
 
   <meta name="HandheldFriendly" content="True">
@@ -27,7 +28,7 @@ RhapsodyJS allows you to create sca...">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rhapsodyjs.github.io/">
+  <link rel="canonical" href="http://rhapsodyjs.github.io/docs/configuration/">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/touch-favicon.png">
   <link rel="shortcut icon" href="/img/favicon.png">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -56,7 +57,7 @@ RhapsodyJS allows you to create sca...">
 
 </head>
 
-<body   class="no-sidebar" >
+<body  >
   <header role="banner" class="top-header"><!--<hgroup>
   <h1 class="text-center">
   	<a href="/">RhapsodyJS</a>
@@ -105,9 +106,9 @@ RhapsodyJS allows you to create sca...">
 
       <ul class="main-navigation right">
 
-          <li class="active"><a href="/">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li><a href="/get-started/">Get started</a></li>
-          <li><a href="/docs/">Docs</a></li>
+          <li class="active"><a href="/docs/">Docs</a></li>
           <li><a href="https://github.com/rhapsodyjs/RhapsodyJS" target="_blank"><i class="fa fa-github-square"></i> Github</a></li>
 
       </ul>
@@ -117,27 +118,61 @@ RhapsodyJS allows you to create sca...">
 </nav>
   <div id="main">
     <div id="content" class="row">
-        <div class="small-12 medium-12 large-10 large-centered columns">
+        <div class="small-12 medium-12 large-8 large-push-4 columns">
   <article role="article">
     
-    <p><header class="page-header">
-  <h1 class="page-title"><img src="/img/logo.jpg" alt="RhapsodyJS"></h1>
-  <h1 class="subheader">An epic HMVC framework for Node!</h1>
-</header></p>
+    <header class="page-header">
+      <h1 class="page-title">Configuration</h1>
+      
+    </header>
+    
+    <p>The configuration file <code>app/config/config.js</code> is where the environment is set.</p>
 
-<p>Build high-performance, safe, organized and epic apps!</p>
+<h2>Environment</h2>
 
-<p>RhapsodyJS allows you to create scalable apps with custom REST APIs, real-time with WebSockets,
-and has built-in REST APIs for your models, you can even enable cluster module for improve
-the scalability of your app.</p>
+<p>Should be a string, the name of the current environment of your app.</p>
 
-<p>It&#39;s highly plugable, you can choose what database you want to use, use community middlewares
-for your controllers and REST APIs or create your owns, choose your favorite template engine,
-allows i18n, and generates automatically models for your prefered front-end framework!</p>
+<p>Initially RhapsodyJS creates two environment files for you (<code>dev.js</code> and <code>prod.js</code>, plus the <code>all.js</code> file with configurations common for all environments), but you can create infinite environment files inside the <code>env</code> folder and use its name (without the &quot;.js&quot;) as a value to this option.</p>
 
     
   </article>
   </div><!--.columns-->
+  
+  <aside class="sidebar small-12 medium-12 large-pull-8 large-4 columns">
+    <section>
+	
+	<h4><i class="fa fa-folder"></i> Table of contents</h4>
+
+	<ul class="side-nav no-bullet">
+	  <li><a href="/get-started">Get started</a></li>
+	  <li><a href="/docs/controllers">Controllers</a></li>
+	  <li><a href="/docs/middlewares">Middlewares</a></li>
+	  <li>
+	    <a href="/docs/models">Models</a>
+	    <ul>
+	      <li><a href="/docs/models/rest-api">REST API</a></li>
+	    </ul>
+	  </li>
+	  <li><a href="/docs/classes">Classes</a></li>
+	  <li><a href="/docs/utilities">Utilities</a></li>
+	  <li>
+	    <a href="/docs/configuration/">Configuration</a>
+	    <ul>
+	      <li><a href="/docs/configuration/environments">Environments</a></li>
+	      <li><a href="/docs/configuration/database-adapters">Database adapters</a></li>
+	      <li><a href="/docs/configuration/template-engines">Template engines</a></li>
+	      <li><a href="/docs/configuration/i18n">Internationalization (I18n)</a></li>
+	      <li><a href="/docs/configuration/error">Error</a></li>
+	      <li><a href="/docs/configuration/session">Session</a></li>
+	      <li><a href="/docs/configuration/socket">Socket</a></li>
+	      <li><a href="/docs/configuration/bootstrap">Bootstraping</a></li>
+	      <li><a href="/docs/configuration/csrf">CSRF</a></li>
+	    </ul>
+	  </li>
+	</ul>
+
+</section>
+  </aside>
   
 
 

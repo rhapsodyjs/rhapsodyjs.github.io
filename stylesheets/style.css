@@ -1,0 +1,37 @@
+.top-bar-section li a:not(.button) {
+	background: black;
+	color: white;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+	background: white;
+	color: black;
+}
+
+.top-bar-section li.active:not(.has-form) a:not(.button):hover {
+	background: #DDD;
+	color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: black;
+}
+
+.highlight {
+	margin: 25px 0;
+}
+
+
+.side-nav li a:not(.button),
+a {
+	color: #808080;
+}
+
+.side-nav li a:not(.button):hover,
+.side-nav li a:not(.button):focus,
+.side-nav li a:not(.button):active,
+a:hover,
+a:focus,
+a:active {
+	color: black;
+}

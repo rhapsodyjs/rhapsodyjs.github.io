@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <script src="/js/vendor/modernizr.js"></script>
+  <meta charset="utf-8">
+  <title>Session | RhapsodyJS</title>
+
+  
+  <meta name="description" content="  
+  
+    
+    
+      Session
+      
+    
+    
+    In the app/config/session.js file you will have all the options for the use of sessions in your ...">
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://rhapsodyjs.github.io/docs/configuration/session/">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/touch-favicon.png">
+  <link rel="shortcut icon" href="/img/favicon.png">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/markdown.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/style.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+  <script src="/js/vendor/jquery.js"></script>
+  <script src="/js/vendor/fastclick.js"></script>
+
+  <script src="/js/foundation.min.js"></script>
+
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+
+
+  <script>
+
+  $(document).ready(function(){
+    $(document).foundation();
+  });
+
+  </script>
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+  <link href='http://fonts.googleapis.com/css?family=Roboto:300,300italic,500,500italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu:500' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body  >
+  <header role="banner" class="top-header"><!--<hgroup>
+  <h1 class="text-center">
+  	<a href="/">RhapsodyJS</a>
+  </h1>
+  
+</hgroup>-->
+
+<!--<ul class="example-orbit-content" data-orbit>
+  <li data-orbit-slide="headline-1">
+    <div>
+      <h2>Headline 1</h2>
+      <h3>Subheadline</h3>
+    </div>
+  </li>
+  <li data-orbit-slide="headline-2">
+    <div>
+      <h2>Headline 2</h2>
+      <h3>Subheadline</h3>
+    </div>
+  </li>
+  <li data-orbit-slide="headline-3">
+    <div>
+      <h2>Headline 3</h2>
+      <h3>Subheadline</h3>
+    </div>
+  </li>
+</ul>-->
+</header>
+  <nav role="navigation"><ul class="subscription hide" data-subscription="rss">
+  <li><a href="" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+
+
+
+  <nav class="top-bar" data-topbar>
+
+    <ul class="title-area">
+        <li class="name">
+          <h1><a href="/">RhapsodyJS</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+    </ul>
+
+    <section class="top-bar-section">
+
+      <ul class="main-navigation right">
+
+          <li><a href="/">Home</a></li>
+          <li><a href="/get-started/">Get started</a></li>
+          <li class="active"><a href="/docs/">Docs</a></li>
+          <li><a href="https://github.com/rhapsodyjs/RhapsodyJS" target="_blank"><i class="fa fa-github-square"></i> Github</a></li>
+
+      </ul>
+
+    </section>
+  </nav>
+</nav>
+  <div id="main">
+    <div id="content" class="row">
+        <div class="small-12 medium-12 large-8 large-push-4 columns">
+  <article role="article">
+    
+    <header class="page-header">
+      <h1 class="page-title">Session</h1>
+      
+    </header>
+    
+    <p>In the <code>app/config/session.js</code> file you will have all the options for the use of sessions in your app.</p>
+
+<p>This file can have the following options:</p>
+<div class="highlight"><pre><code class="js"><span class="p">{</span>
+    <span class="nx">enabled</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+
+    <span class="c1">//The id of the session on the browser of the client</span>
+    <span class="nx">sessionIDKey</span><span class="o">:</span> <span class="s1">&#39;sessionID&#39;</span><span class="p">,</span>
+
+    <span class="c1">//The secret to use signed cookies. If &quot;undefined&quot;, the cookies will be unsigned</span>
+    <span class="nx">cookieSecret</span><span class="o">:</span> <span class="s1">&#39;rhapsodyCookieSecret&#39;</span><span class="p">,</span> 
+
+    <span class="c1">//The secret used to protect the cookie key of the session in the browser of the client</span>
+    <span class="nx">sessionSecret</span><span class="o">:</span> <span class="s1">&#39;rhapsodySessionSecret&#39;</span><span class="p">,</span> 
+
+    <span class="c1">//The max age of the cookies. If &quot;undefined&quot;, the cookies will never expire</span>
+    <span class="nx">maxAge</span><span class="o">:</span> <span class="mi">60000</span><span class="p">,</span> 
+
+    <span class="c1">//If undefined, uses MemoryStore</span>
+    <span class="c1">//otherwise you must pass a store capable of store cookies/sessions</span>
+    <span class="nx">sessionStore</span><span class="o">:</span> <span class="kc">undefined</span>
+<span class="p">}</span>
+</code></pre></div>
+    
+  </article>
+  </div><!--.columns-->
+  
+  <aside class="sidebar small-12 medium-12 large-pull-8 large-4 columns">
+    <section>
+	
+	<h4><i class="fa fa-folder"></i> Table of contents</h4>
+
+	<ul class="side-nav no-bullet">
+	  <li><a href="/get-started">Get started</a></li>
+	  <li><a href="/docs/controllers">Controllers</a></li>
+	  <li><a href="/docs/middlewares">Middlewares</a></li>
+	  <li>
+	    <a href="/docs/models">Models</a>
+	    <ul>
+	      <li><a href="/docs/models/rest-api">REST API</a></li>
+	    </ul>
+	  </li>
+	  <li><a href="/docs/classes">Classes</a></li>
+	  <li><a href="/docs/utilities">Utilities</a></li>
+	  <li>
+	    <a href="/docs/configuration/">Configuration</a>
+	    <ul>
+	      <li><a href="/docs/configuration/environments">Environments</a></li>
+	      <li><a href="/docs/configuration/database-adapters">Database adapters</a></li>
+	      <li><a href="/docs/configuration/template-engines">Template engines</a></li>
+	      <li><a href="/docs/configuration/i18n">Internationalization (I18n)</a></li>
+	      <li><a href="/docs/configuration/error">Error</a></li>
+	      <li><a href="/docs/configuration/session">Session</a></li>
+	      <li><a href="/docs/configuration/socket">Socket</a></li>
+	      <li><a href="/docs/configuration/bootstrap">Bootstraping</a></li>
+	      <li><a href="/docs/configuration/csrf">CSRF</a></li>
+	    </ul>
+	  </li>
+	</ul>
+
+</section>
+  </aside>
+  
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p class="text-center">
+  <span class="copyright">
+  	
+  </span>
+
+  <span class="credit">
+  	Theme by <a href="http://annekjohnson.com" target="_blank">Anne Johnson</a>
+  </span>
+</p>
+</footer>
+  
+</body>
+</html>
