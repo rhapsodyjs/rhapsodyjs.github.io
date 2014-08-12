@@ -152,7 +152,8 @@ The <code>all.js</code> file contains configurations common for all the environm
     <span class="p">},</span>
 
     <span class="nx">log</span><span class="o">:</span> <span class="p">{</span>
-        <span class="c1">//For log levels, see WolverineJS documentation: https://github.com/talyssonoc/wolverinejs</span>
+        <span class="c1">//The name of the logging level,</span>
+        <span class="c1">//For more info, see WolverineJS documentation: https://github.com/talyssonoc/wolverinejs</span>
         <span class="nx">level</span><span class="o">:</span> <span class="s1">&#39;debug&#39;</span><span class="p">,</span>
 
         <span class="c1">//if undefined, will print to the terminal</span>
@@ -165,10 +166,12 @@ The <code>all.js</code> file contains configurations common for all the environm
         <span class="nx">printLevel</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 
         <span class="c1">//If true, shows the time the log was logged before the level name</span>
-        <span class="nx">time</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+        <span class="nx">printTime</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
 
         <span class="c1">//If true, show and file and the line number of where the log was called</span>
-        <span class="nx">printFileInfo</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="nx">printFileInfo</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+
+        <span class="nx">driver</span><span class="o">:</span> <span class="kc">undefined</span>
     <span class="p">},</span>
 
     <span class="nx">routes</span><span class="o">:</span> <span class="p">{</span>
