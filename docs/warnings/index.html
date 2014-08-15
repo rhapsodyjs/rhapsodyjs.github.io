@@ -6,18 +6,18 @@
 <head>
   <script src="/js/vendor/modernizr.js"></script>
   <meta charset="utf-8">
-  <title>Introduction | RhapsodyJS</title>
+  <title>Warnings & known issues | RhapsodyJS</title>
 
   
   <meta name="description" content="  
   
     
     
-      Introduction
+      Warnings & known issues
       
     
     
-    Hello there! So you&#39;re giving RhapsodyJS a try, you won&#39;t be disappointed, I guaran...">
+    There are some warnings (not exactly problems, you&#39;ll see it) you must when ...">
   
 
   <meta name="HandheldFriendly" content="True">
@@ -25,7 +25,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rhapsodyjs.github.io/docs/">
+  <link rel="canonical" href="http://rhapsodyjs.github.io/docs/warnings/">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/touch-favicon.png">
   <link rel="shortcut icon" href="/img/favicon.png">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -119,20 +119,29 @@
   <article role="article">
     
     <header class="page-header">
-      <h1 class="page-title">Introduction</h1>
+      <h1 class="page-title">Warnings & known issues</h1>
       
     </header>
     
-    <p>Hello there! So you&#39;re giving RhapsodyJS a try, you won&#39;t be disappointed, I guarantee! =)</p>
+    <p>There are some warnings (not exactly problems, you&#39;ll see it) you must when developing your app.</p>
 
-<p>As your first step I would suggest you to read how <a href="/docs/controllers">Controllers</a> work in RhapsodyJS,
-you&#39;ll see that they are self-routed, so you won&#39;t have to create a lot of route files, just the file
-with the actions and the info about the controller and its subcontrollers and views folder,
-in a organized and hierarchical way.</p>
+<h2>Store session on memory + Cluster mode enabled</h2>
 
-<p>You&#39;re not understanding something, you can just ask on <a href="https://github.com/rhapsodyjs/RhapsodyJS">RhapsodyJS repository on Github</a>.</p>
+<p>The cluster mode runs a new instance of your app for each core of your processor,
+so they won&#39;t share objects between them. When using sessions stored in the memory
+(e.g. in an object, using MemoryStore), that object won&#39;t be shared between the instances
+of your app, so the user may lose its session data.</p>
 
-<p>Hey, and if you want to contribute with the project, feel free to create a pull request. =)</p>
+<p>To understand it better, read <a href="http://nodejs.org/api/cluster.html#cluster_how_it_works" target="_blank">how Cluster works</a>, in Node.js documentation.</p>
+
+<h2>Cluster mode enabled + Superagent (or compliants)</h2>
+
+<p>If you&#39;re going to run tests that use the Express instance inside your app (e.g. Superagent),
+you got to disable the cluster mode. It happens because this instance will link to the
+master process when the cluster mode is on, that do not have routes, and it&#39;ll fail.</p>
+
+<p>Fortunately RhapsodyJS allows you to enable Cluster just in some environments, so you can
+disable it in tests!</p>
 
     
   </article>
