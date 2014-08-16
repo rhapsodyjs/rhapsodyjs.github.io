@@ -6,18 +6,19 @@
 <head>
   <script src="/js/vendor/modernizr.js"></script>
   <meta charset="utf-8">
-  <title>Bootstrap | RhapsodyJS</title>
+  <title>Request & Response objects | RhapsodyJS</title>
 
   
   <meta name="description" content="  
   
     
     
-      Bootstrap
+      Request & Response objects
       
     
     
-    If you want to bootstrap some configuration (like create new log levels), run Grunt or Gulp ta...">
+    A lot of things, like controllers, middlewares, error handlers and so on,
+in ...">
   
 
   <meta name="HandheldFriendly" content="True">
@@ -25,7 +26,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://rhapsodyjs.github.io/docs/configuration/bootstrap/">
+  <link rel="canonical" href="http://rhapsodyjs.github.io/docs/req-and-res/">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/img/touch-favicon.png">
   <link rel="shortcut icon" href="/img/favicon.png">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -119,14 +120,51 @@
   <article role="article">
     
     <header class="page-header">
-      <h1 class="page-title">Bootstrap</h1>
+      <h1 class="page-title">Request & Response objects</h1>
       
     </header>
     
-    <p>If you want to bootstrap some configuration (like create new log levels), run Grunt or Gulp tasks and so on, it&#39;s the place.</p>
+    <p>A lot of things, like controllers, middlewares, error handlers and so on,
+in RhapsodyJS revolves around the Request <code>req</code> and the Response <code>res</code>
+objects.</p>
 
-<p>the boostrap file is a function that receives the <code>done</code> callback as parameter, so this function can be used asynchronously.
-Don&#39;t <strong>ever</strong> forget to call it, so your app will never run.</p>
+<p>For example, a controller can have the following action:</p>
+<div class="highlight"><pre><code class="js">    <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">&#39;One does not simply use req and res without understand them.&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+</code></pre></div>
+<p>As their name say, the <code>req</code> parameter contains attributes and methods about the request
+made by the user, and the <code>res</code> parameter contains attributes and methods about the
+response that will be sent to the user.</p>
+
+<h2>Request</h2>
+
+<p>As RhapsodyJS uses Express inside of it, the <code>req</code> parameters contains all methods
+and attributes <a href="http://expressjs.com/api.html#req.params">Express&#39; request</a> has natively.</p>
+
+<p>Beyond this, on RhapsodyJS, <code>req</code> parameter also has (<strong>important</strong>: Don&#39;t forget that
+where the other libs&#39; docs says that you gotta setup them, like <code>app.use(libName())</code> you
+don&#39;t need to do that, RhapsodyJS already done it for you!) :</p>
+
+<ul>
+<li><code>req.flash</code> Support for flash messages, to see how it works check the documentation
+of the lib RhapsodyJS uses for enabling flash messages, <a href="https://github.com/jaredhanson/connect-flash#usage">connect-flash</a>.
+<strong>Important:</strong> This will only work if you enabled sessions on your environment config file!</li>
+<li><code>req.files</code> If you enabled uploads on your environment config files, your request
+object will have this field. To see how it works, see <a href="https://github.com/andrewrk/connect-multiparty">connect-multiparty documentation</a>.</li>
+<li><code>req.session</code> If you enabled session on your environment config file, you can access it
+in this attribute. See the <a href="https://github.com/expressjs/session#reqsession">express-session documentation</a>
+to see how this attribute works.</li>
+</ul>
+
+<h2>Response</h2>
+
+<p>Like Request, Response also has all the methods and attributes natively present in the
+<a href="http://expressjs.com/api.html#res.status">Express&#39; response</a>.</p>
+
+<p>The <code>res</code> parameter also has an extra method, that can <strong>only be used inside controllers</strong>.
+This method is <code>res.view</code>, to see how it works see <a href="/docs/controllers/">RhapsodyJS&#39; controllers docs</a>
+in the part about dynamic views.</p>
 
     
   </article>
