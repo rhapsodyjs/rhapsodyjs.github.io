@@ -142,9 +142,9 @@
 
 <p>All theses request will first pass by the model middlewares (if any).</p>
 
-<h2>Query options</h2>
+<h3>Query options</h3>
 
-<h3>Attributes</h3>
+<h4>Attributes</h4>
 
 <p>If you want just some attributes, you can pass it with the option <code>attrs</code> separating them with <em>commas</em>, for example:</p>
 
@@ -154,7 +154,7 @@
 
 <p><code>/data/ModelName/someID/?attrs=name,registry</code></p>
 
-<h3>Limit (only for <strong>GET</strong> <code>/data/&lt;ModelName&gt;</code>)</h3>
+<h4>Limit</h4>
 
 <p>You can limit the number of results you want to get in the responde using the option <code>limit</code>, for example:</p>
 
@@ -162,7 +162,7 @@
 
 <p>It will return you the first 10 results.</p>
 
-<h3>Offset (only for <strong>GET</strong> <code>/data/&lt;ModelName&gt;</code>)</h3>
+<h4>Offset</h4>
 
 <p>If you want to skip some results, you can use the option <code>offset</code>, for example:</p>
 
@@ -170,7 +170,7 @@
 
 <p>It will skip the first 10 results and return the rest.</p>
 
-<h3>Order by some attribute (only for <strong>GET</strong> <code>/data/&lt;ModelName&gt;</code>)</h3>
+<h4>Order by some attribute</h4>
 
 <p>You can order the results by some attribute using the option <code>orderby</code>, for example:</p>
 
@@ -178,7 +178,7 @@
 
 <p>If will return all the results, ordering them by the attribute &quot;age&quot;.</p>
 
-<h3>Order (only for <strong>GET</strong> <code>/data/&lt;ModelName&gt;</code>)</h3>
+<h4>Order</h4>
 
 <p>You can choose if the results will be in ascending or descending order using the option <code>order</code> with the value <code>asc</code> or <code>desc</code> (they are case insensitive), for example:</p>
 
